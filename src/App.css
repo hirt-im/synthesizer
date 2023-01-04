@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -53,7 +54,6 @@
   width: 2vw;
   height: 6vw;
   left: 75%;
-  z-index: 1;
 }
 
 .naturals, .sharps{
@@ -65,4 +65,43 @@
   display: flex;
   height: 10vw;
   width: 4vw;
+}
+
+.knob {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.knob-handle{
+  border: 1px solid white;
+  width: .001em;
+  height: 48%;
+  position: relative;
+  transform: translate(-50%, -50%);
+  align-self: center;
+}
+
+.knob-wrapper{
+  transform: translate(-50%, -50%);
+  transform: rotate(-135deg);
+
+}
+
+.knob-value{
+  transform: translate(-50%, -50%);
+  position: relative;
+  width: 1em;
+  font-size: 2em;
+}
+
+.knob-wrapper-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
