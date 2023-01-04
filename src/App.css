@@ -105,3 +105,8 @@
   justify-content: center;
   align-items: center;
 }
+
+.knobs{
+  display: flex;
+  gap: 2vw;
+}

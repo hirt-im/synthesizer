@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
+
+
 export default function Knob(props){
 
-    // const [currRotation, setRotation] = useState(props.rotation);
+    const knobNum = parseInt(props.id);
+
     let currRotation = parseInt(props.rotation);
-    // let value = parseInt(props.value);
     const [value, setValue] = useState(props.value);
+
 
     const min = parseInt(props.min);
     const max = parseInt(props.max);
@@ -22,7 +25,7 @@ export default function Knob(props){
 
 
     function rotate(){
-        let knobWrapper = document.getElementsByClassName('knob-wrapper')[0];
+        let knobWrapper = document.getElementsByClassName('knob-wrapper')[knobNum];
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
         console.log(currRotation);
         calculateValue();
@@ -32,7 +35,7 @@ export default function Knob(props){
         let currRad = currRotation * (Math.PI / 180);
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = Math.round((valueFactor * max) * 100) / 100;
-        setValue(newValue);
+        setValue(newValue.toFixed(2));
         console.log(value);
     }
 

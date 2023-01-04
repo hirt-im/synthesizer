@@ -9,8 +9,12 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Keyboard />
-        <div> l</div>
-        <Knob rotation="-120" value="0" min="0" max="10"/>
+        <div> ""</div>
+        <div className='knobs'>
+          <Knob rotation="-120" value="0.00" min="0" max="10" id="0"/>
+          <Knob rotation="-120" value="0.00" min="0" max="120" id="1"/>
+          <Knob rotation="-120" value="0.00" min="0" max="3" id="2"/>
+        </div>
       </header>
     </div>
   );
