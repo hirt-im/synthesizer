@@ -40,8 +40,6 @@
 .key{
   background-color: white;
   color: black;
-  height: 10vw;
-  width: 4vw;
 }
 
 .keyboard{
@@ -51,4 +49,20 @@
 .sharp{
   background-color: black;
   color: white;
+  position: relative;
+  width: 2vw;
+  height: 6vw;
+  left: 75%;
+  z-index: 1;
+}
+
+.naturals, .sharps{
+  display: flex;
+}
+
+.natural{
+  border: 1px solid black;
+  display: flex;
+  height: 10vw;
+  width: 4vw;
 }
