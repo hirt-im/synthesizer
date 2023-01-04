@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 export default function Knob(props){
 
-    const [currRotation, setRotation] = useState(props.rotation);
+    // const [currRotation, setRotation] = useState(props.rotation);
+    let currRotation = parseInt(props.rotation);
+    // let value = parseInt(props.value);
     const [value, setValue] = useState(props.value);
 
     const min = parseInt(props.min);
@@ -13,15 +15,20 @@ export default function Knob(props){
 
     const slidingMax = maxRad * 2;
 
+    let initialY;
 
-    const rotate = () => {
+    let tickRate = 1;
+
+
+
+    function rotate(){
         let knobWrapper = document.getElementsByClassName('knob-wrapper')[0];
-        setRotation(parseInt(currRotation) + 15);
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
+        console.log(currRotation);
         calculateValue();
     }
 
-    const calculateValue = () => {
+    function calculateValue(){
         let currRad = currRotation * (Math.PI / 180);
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = Math.round((valueFactor * max) * 100) / 100;
@@ -29,9 +36,35 @@ export default function Knob(props){
         console.log(value);
     }
 
+    function handleMouseMove(e){
+            
+        let y = e.clientY;
+        let rotation = (y - initialY) / tickRate;
+        currRotation -= rotation;
+        rotate();
+        console.log('currRot: ' + currRotation);
+
+        console.log('rotation: ' + rotation);
+        console.log(value);
+
+        initialY = e.clientY;
+
+
+
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+        })
+    }
+
+    function rotateKnob(e){
+        initialY = e.clientY;
+        document.addEventListener('mousemove', handleMouseMove);
+    }
+
+
     return(
         <div className='knob-wrapper-wrapper'>
-            <div className='knob-wrapper' onClick={rotate}>
+            <div className='knob-wrapper' onMouseDown={rotateKnob}>
                 <div className='knob'>
                     <div className='knob-handle'></div>
                 </div>
