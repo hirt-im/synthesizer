@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.key{
+  background-color: white;
+  color: black;
+  height: 10vw;
+  width: 4vw;
+}
+
+.keyboard{
+  display: flex;
+}
+
+.sharp{
+  background-color: black;
+  color: white;
+}
