@@ -1,12 +1,19 @@
+import generateNote from '../audio/audio.js';
+import { getFrequency, noteFrequencies }from '../audio/frequencies';
+import { octave } from '../index.js';
+
 export default function Key(props){
     let sharpNote = props.note + "#";
 
     const playNote = () => {
         console.log(props.note);
+        generateNote(getFrequency(props.note, octave))
     }
 
     const playNoteSharp = (e) => {
         console.log(sharpNote)
+        console.log(props.note);
+        generateNote(getFrequency(sharpNote, octave))
         e.stopPropagation();
     }
 
