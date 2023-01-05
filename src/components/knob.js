@@ -22,12 +22,17 @@ export default function Knob(props){
 
     let initialY;
 
-    let tickRate = 1.2;
+    let tickRate = 1;
 
 
 
     function rotate(){
-        if (currRotation < -135 || currRotation > 135){
+        if (currRotation < -135){
+            setValue(min.toFixed(2));
+            return;
+        }
+        if (currRotation > 135){
+            setValue(max.toFixed(2));
             return;
         }
         let knobWrapper = document.getElementsByClassName('knob-wrapper')[knobNum];
@@ -39,7 +44,9 @@ export default function Knob(props){
     function calculateValue(){
         let currRad = currRotation * (Math.PI / 180);
         let valueFactor = (currRad + maxRad) / slidingMax;
-        let newValue = Math.round((valueFactor * max) * 100) / 100;
+        // let newValue = Math.round((valueFactor * max) * 100) / 100;
+        let newValue = (valueFactor * max) * 100 / 100;
+
         setValue(newValue.toFixed(2));
         console.log(value);
     }
@@ -62,10 +69,11 @@ export default function Knob(props){
 
 
 
-        document.addEventListener('mouseup', () => {
+        document.addEventListener('mouseup', (e) => {
             console.log(prevRotation)
             setPrevRot(currRotation);
             document.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('mouseup', (e));
         })
     }
 
@@ -88,3 +96,4 @@ export default function Knob(props){
         </div>
     );
 }
+
