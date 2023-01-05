@@ -33,52 +33,35 @@ export default function Knob(props){
         }
         let knobWrapper = document.getElementsByClassName('knob-wrapper')[knobNum];
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
-        console.log(currRotation);
         calculateValue();
     }
 
     function calculateValue(){
         let currRad = currRotation * (Math.PI / 180);
         let valueFactor = (currRad + maxRad) / slidingMax;
-        // let newValue = Math.round((valueFactor * max) * 100) / 100;
         let newValue = (valueFactor * max) * 100 / 100;
-
         setValue(newValue.toFixed(2));
-        console.log(value);
     }
 
     function handleMouseMove(e){
-        console.log(initialY);
-
         e.preventDefault();
-            
         let y = e.clientY;
         let rotation = (y - initialY) / rotRate;
         currRotation -= rotation;
         rotate();
-        console.log('currRot: ' + currRotation);
-
-        console.log('rotation: ' + rotation);
-        console.log(value);
-
         initialY = e.clientY;
+    }
 
-
-
-        document.addEventListener('mouseup', (e) => {
-            console.log(prevRotation)
-            setPrevRot(currRotation);
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', (e));
-
-            // send value to appropriate synth control 
-        })
+    function handleMouseUp(){
+        setPrevRot(currRotation);
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
     }
 
     function rotateKnob(e){
         initialY = e.clientY;
-        console.log(initialY);
         document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseup', handleMouseUp);
     }
 
 
