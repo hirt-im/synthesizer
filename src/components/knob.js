@@ -5,33 +5,29 @@ import { useState } from 'react';
 export default function Knob(props){
 
     const knobNum = parseInt(props.id);
-
-
     const [prevRotation, setPrevRot] = useState(props.rotation);
-    let currRotation = parseInt(prevRotation);
     const [value, setValue] = useState(props.value);
-
+    let currRotation = parseInt(prevRotation);
 
     const min = parseInt(props.min);
     const max = parseInt(props.max);
 
     const minRad = -135 * (Math.PI / 180);
     const maxRad = 135 * (Math.PI / 180);
-
     const slidingMax = maxRad * 2;
 
     let initialY;
+    let rotRate = 1;
 
-    let tickRate = 1;
-
-
-
+    
     function rotate(){
         if (currRotation < -135){
+            currRotation = -135;
             setValue(min.toFixed(2));
             return;
         }
         if (currRotation > 135){
+            currRotation = 135;
             setValue(max.toFixed(2));
             return;
         }
@@ -57,7 +53,7 @@ export default function Knob(props){
         e.preventDefault();
             
         let y = e.clientY;
-        let rotation = (y - initialY) / tickRate;
+        let rotation = (y - initialY) / rotRate;
         currRotation -= rotation;
         rotate();
         console.log('currRot: ' + currRotation);
@@ -74,6 +70,8 @@ export default function Knob(props){
             setPrevRot(currRotation);
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', (e));
+
+            // send value to appropriate synth control 
         })
     }
 
