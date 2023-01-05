@@ -104,9 +104,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 3px;
 }
 
 .knobs{
   display: flex;
-  gap: 2vw;
+  gap: 2.3vw;
 }
+
+.knob-label{
+  font-size: .9em;
+}
+
+
+/* use colors of default react app */

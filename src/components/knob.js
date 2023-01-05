@@ -6,7 +6,9 @@ export default function Knob(props){
 
     const knobNum = parseInt(props.id);
 
-    let currRotation = parseInt(props.rotation);
+
+    const [prevRotation, setPrevRot] = useState(props.rotation);
+    let currRotation = parseInt(prevRotation);
     const [value, setValue] = useState(props.value);
 
 
@@ -20,11 +22,14 @@ export default function Knob(props){
 
     let initialY;
 
-    let tickRate = 1;
+    let tickRate = 1.2;
 
 
 
     function rotate(){
+        if (currRotation < -135 || currRotation > 135){
+            return;
+        }
         let knobWrapper = document.getElementsByClassName('knob-wrapper')[knobNum];
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
         console.log(currRotation);
@@ -40,6 +45,9 @@ export default function Knob(props){
     }
 
     function handleMouseMove(e){
+        console.log(initialY);
+
+        e.preventDefault();
             
         let y = e.clientY;
         let rotation = (y - initialY) / tickRate;
@@ -55,18 +63,22 @@ export default function Knob(props){
 
 
         document.addEventListener('mouseup', () => {
+            console.log(prevRotation)
+            setPrevRot(currRotation);
             document.removeEventListener('mousemove', handleMouseMove);
         })
     }
 
     function rotateKnob(e){
         initialY = e.clientY;
+        console.log(initialY);
         document.addEventListener('mousemove', handleMouseMove);
     }
 
 
     return(
         <div className='knob-wrapper-wrapper'>
+            <div className='knob-label'>{props.label}</div>
             <div className='knob-wrapper' onMouseDown={rotateKnob}>
                 <div className='knob'>
                     <div className='knob-handle'></div>

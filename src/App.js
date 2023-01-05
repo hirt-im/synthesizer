@@ -11,9 +11,9 @@ function App() {
         <Keyboard />
         <div> ""</div>
         <div className='knobs'>
-          <Knob rotation="-120" value="0.00" min="0" max="10" id="0"/>
-          <Knob rotation="-120" value="0.00" min="0" max="120" id="1"/>
-          <Knob rotation="-120" value="0.00" min="0" max="3" id="2"/>
+          <Knob rotation="-120" value="0.00" min="0" max="10" id="0" label="Volume"/>
+          <Knob rotation="-120" value="0.00" min="0" max="120" id="1" label="Reverb"/>
+          <Knob rotation="-120" value="0.00" min="0" max="3" id="2" label="Sustain"/>
         </div>
       </header>
     </div>
