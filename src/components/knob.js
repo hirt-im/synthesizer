@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-
+import { effectValues } from '../audio/audio';
 
 export default function Knob(props){
 
@@ -41,6 +40,7 @@ export default function Knob(props){
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(2));
+        effectValues[props.label] = newValue;
     }
 
     function handleMouseMove(e){
@@ -77,4 +77,3 @@ export default function Knob(props){
         </div>
     );
 }
-

@@ -1,5 +1,10 @@
-let audioCtx = new window.AudioContext;
+let audioCtx = new window.AudioContext();
 let oscillators = [];
+let effectValues = {
+    "Volume": 0,
+    "Sustain": 0,
+    "Reverb": 0
+}
 
 
 function generateOscillator(){
@@ -16,9 +21,14 @@ function routeOscillators(){
 
 export default function generateNote(freq){
     let osc = audioCtx.createOscillator();
+    let gainNode = audioCtx.createGain();
+    gainNode.gain.value = effectValues["Volume"];
     osc.frequency.value = freq;
 
-    osc.connect(audioCtx.destination);
+    console.log(effectValues);
+
+    osc.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
     osc.start();
     setTimeout( () => {
         osc.stop();
@@ -26,5 +36,9 @@ export default function generateNote(freq){
 }
 
 
+
+
 // generateOscillator();
 // routeOscillators();
+
+export { effectValues};
