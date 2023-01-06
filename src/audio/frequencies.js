@@ -11,6 +11,7 @@ const noteFrequencies = {
     'A': 27.50,
     'A#': 29.14,
     'B': 30.87,
+    'C2': 32.7
 }
 
 export default function getFrequency(note, octave){
