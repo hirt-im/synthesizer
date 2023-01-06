@@ -1,8 +1,18 @@
+import { useEffect } from 'react';
 import generateNote from '../audio/audio.js';
 import getFrequency from '../audio/frequencies';
 import { octave } from '../index.js';
 
 export default function Key(props){
+
+    useEffect(() => {
+        document.addEventListener('keydown', (e) => {
+            if(e.key === keypresses[props.note]){
+                playNote();
+            }
+        })
+    })
+
     let sharpNote = props.note + "#";
 
     const playNote = () => {
@@ -31,4 +41,20 @@ export default function Key(props){
             <div className={'key sharp ' + sharpNote} onClick={playNoteSharp}></div>
         </div>
     );
+}
+
+let keypresses = {
+    'C': 'a',
+    'C#': 'w',
+    'D': 's',
+    'D#': 'e',
+    'E': 'd',
+    'F': 'f',
+    'F#': 't',
+    'G': 'g',
+    'G#': 'y',
+    'A': 'h',
+    'A#': 'u',
+    'B': 'j',
+    'C2': 'k'
 }
