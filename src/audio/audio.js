@@ -3,7 +3,7 @@ import { toBeEnabled } from "@testing-library/jest-dom/dist/matchers";
 let audioCtx = new window.AudioContext();
 let oscillators = [];
 let effectValues = {
-    "Volume": 0,
+    "Gain": 0.1,
     "Sustain": 0,
     "Reverb": 0
 }
@@ -27,7 +27,7 @@ export default function generateNote(freq){
 
     let osc = audioCtx.createOscillator();
     let gainNode = audioCtx.createGain();
-    gainNode.gain.value = effectValues["Volume"];
+    gainNode.gain.value = effectValues["Gain"];
     osc.frequency.value = freq;
 
     console.log(effectValues);

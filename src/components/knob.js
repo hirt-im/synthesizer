@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { effectValues } from '../audio/audio';
 
 export default function Knob(props){
@@ -18,6 +18,17 @@ export default function Knob(props){
     let initialY;
     let rotRate = 1;
 
+    function defaultValueToRotation(val){
+        let percentage = val / (max - min);
+        let rotation = (270 * percentage) - 135;
+
+    }
+
+    useEffect(() => {
+        let percentage = props.value / (max - min);
+        currRotation = (270 * percentage) - 135;
+        rotate();
+    }, [])
     
     function rotate(){
         if (currRotation < -135){
