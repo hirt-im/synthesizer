@@ -13,8 +13,6 @@ const noteFrequencies = {
     'B': 30.87,
 }
 
-function getFrequency(note, octave){
+export default function getFrequency(note, octave){
     return noteFrequencies[note] * (2**octave);
 }
-
-export { noteFrequencies, getFrequency };

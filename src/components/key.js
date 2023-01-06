@@ -1,5 +1,5 @@
 import generateNote from '../audio/audio.js';
-import { getFrequency, noteFrequencies }from '../audio/frequencies';
+import getFrequency from '../audio/frequencies';
 import { octave } from '../index.js';
 
 export default function Key(props){
@@ -7,6 +7,9 @@ export default function Key(props){
 
     const playNote = () => {
         console.log(props.note);
+        if (props.sharp){
+            generateNote(getFrequency(props.note, octave + 1));
+        }
         generateNote(getFrequency(props.note, octave))
     }
 
