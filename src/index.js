@@ -29,7 +29,9 @@ let keypresses = {
   'k': 'C2'
 }
 
-document.addEventListener('keypress', (e) => {
+let currNotes = {};
+
+document.addEventListener('keydown', (e) => {
   if (e.key === 'x'){
     octave++;
   }
@@ -38,9 +40,19 @@ document.addEventListener('keypress', (e) => {
   }
   if (keypresses[e.key]){
     let freq = getFrequency(keypresses[e.key], octave);
-    generateNote(freq);
+    if (!currNotes[e.key]){
+      let osc = generateNote(freq);
+      currNotes[e.key] = osc;
+      osc.start();
+    }
   }
 })
+
+document.addEventListener('keyup', (e) => {
+  currNotes[e.key].stop();
+  delete currNotes[e.key];
+})
+
 
 
 export { octave };

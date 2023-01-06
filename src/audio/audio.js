@@ -1,3 +1,5 @@
+import { toBeEnabled } from "@testing-library/jest-dom/dist/matchers";
+
 let audioCtx = new window.AudioContext();
 let oscillators = [];
 let effectValues = {
@@ -19,21 +21,23 @@ function routeOscillators(){
     })
 }
 
+
 export default function generateNote(freq){
+
+
     let osc = audioCtx.createOscillator();
     let gainNode = audioCtx.createGain();
     gainNode.gain.value = effectValues["Volume"];
     osc.frequency.value = freq;
 
     console.log(effectValues);
+    console.log(osc);
 
     osc.connect(gainNode);
     gainNode.connect(audioCtx.destination);
-    osc.start();
-    setTimeout( () => {
-        osc.stop();
-    }, 1000);
+    return osc;
 }
+
 
 
 
@@ -41,4 +45,4 @@ export default function generateNote(freq){
 // generateOscillator();
 // routeOscillators();
 
-export { effectValues};
+export { effectValues };
