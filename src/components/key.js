@@ -2,6 +2,7 @@ import generateOsc from '../audio/audio.js';
 import getFrequency from '../audio/frequencies';
 import { octave } from '../index.js';
 
+
 export default function Key(props){
 
     const playNote = () => {

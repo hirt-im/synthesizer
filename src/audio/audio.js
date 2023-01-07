@@ -1,13 +1,21 @@
 import { toBeEnabled } from "@testing-library/jest-dom/dist/matchers";
+import * as Tone from 'tone';
 
 let audioCtx = new window.AudioContext();
 let oscillators = [];
 let effectValues = {
     "Gain": 0.1,
     "Sustain": 0,
-    "Reverb": 0
+    "Reverb": 0,
+    "Delay": 0,
+    "Velocity": 0
 }
 
+const synth = new Tone.PolySynth().toDestination();;
+
+function soundSynth(){
+
+}
 
 function generateOscillator(){
     let oscillator = audioCtx.createOscillator();
@@ -25,6 +33,14 @@ function routeOscillators(){
 export default function generateOsc(freq){
     let osc = audioCtx.createOscillator();
     let gainNode = audioCtx.createGain();
+
+    let delay = audioCtx.createDelay();
+    delay.delayTime.value = effectValues["Delay"];
+    console.log(delay);
+
+    
+
+
     gainNode.gain.value = effectValues["Gain"];
     osc.frequency.value = freq;
 
@@ -32,9 +48,12 @@ export default function generateOsc(freq){
     console.log(osc);
 
     osc.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
+    // gainNode.connect(audioCtx.destination);
+    gainNode.connect(delay);
+    delay.connect(audioCtx.destination);
     return [osc, gainNode];
 }
+
 
 
 
@@ -43,4 +62,4 @@ export default function generateOsc(freq){
 // generateOscillator();
 // routeOscillators();
 
-export { effectValues, audioCtx };
+export { effectValues, audioCtx, soundSynth, synth };
