@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import getFrequency from './audio/frequencies';
-import generateNote from './audio/audio';
+import generateOsc, { audioCtx } from './audio/audio';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -41,15 +41,15 @@ document.addEventListener('keydown', (e) => {
   if (keypresses[e.key]){
     let freq = getFrequency(keypresses[e.key], octave);
     if (!currNotes[e.key]){
-      let osc = generateNote(freq);
+      let osc = generateOsc(freq);
       currNotes[e.key] = osc;
-      osc.start();
+      osc[0].start();
     }
   }
 })
 
 document.addEventListener('keyup', (e) => {
-  currNotes[e.key].stop();
+  currNotes[e.key][1].gain.setTargetAtTime(0, audioCtx.currentTime, 0.03);
   delete currNotes[e.key];
 })
 

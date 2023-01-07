@@ -22,9 +22,7 @@ function routeOscillators(){
 }
 
 
-export default function generateNote(freq){
-
-
+export default function generateOsc(freq){
     let osc = audioCtx.createOscillator();
     let gainNode = audioCtx.createGain();
     gainNode.gain.value = effectValues["Gain"];
@@ -35,7 +33,7 @@ export default function generateNote(freq){
 
     osc.connect(gainNode);
     gainNode.connect(audioCtx.destination);
-    return osc;
+    return [osc, gainNode];
 }
 
 
@@ -45,4 +43,4 @@ export default function generateNote(freq){
 // generateOscillator();
 // routeOscillators();
 
-export { effectValues };
+export { effectValues, audioCtx };
