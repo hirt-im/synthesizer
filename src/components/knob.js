@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { effectValues, updateSynth } from '../audio/audio';
 
-export default function Knob(props){
+function Knob(props){
 
     const knobNum = parseInt(props.id);
     const [prevRotation, setPrevRot] = useState(props.rotation);
@@ -37,7 +37,7 @@ export default function Knob(props){
             setValue(max.toFixed(2));
             return;
         }
-        let knobWrapper = document.getElementsByClassName('knob-wrapper')[knobNum];
+        let knobWrapper = document.getElementById(props.id);
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
         calculateValue();
     }
@@ -76,7 +76,7 @@ export default function Knob(props){
     return(
         <div className='knob-wrapper-wrapper'>
             <div className='knob-label'>{props.label}</div>
-            <div className='knob-wrapper' onMouseDown={rotateKnob}>
+            <div className='knob-wrapper' id={props.id} onMouseDown={rotateKnob}>
                 <div className='knob'>
                     <div className='knob-handle'></div>
                 </div>
@@ -85,3 +85,17 @@ export default function Knob(props){
         </div>
     );
 }
+
+
+function KnobGroup(props){
+    return(
+        <div className='knob-group-wrapper'>
+            <div>{props.label}</div>
+            <div className='knob-group'>
+                {props.children}
+            </div>
+        </div>
+    );
+}
+
+export { Knob, KnobGroup };
