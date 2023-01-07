@@ -3,7 +3,7 @@ import { effectValues, updateSynth } from '../audio/audio';
 
 function Knob(props){
 
-    const knobNum = parseInt(props.id);
+    // const knobNum = parseInt(props.id);
     const [prevRotation, setPrevRot] = useState(props.rotation);
     const [value, setValue] = useState(props.value);
     let currRotation = parseInt(prevRotation);
@@ -24,6 +24,7 @@ function Knob(props){
         let percentage = props.value / (max - min);
         currRotation = (270 * percentage) - 135;
         rotate();
+        console.log(effectValues);
     }, [])
     
     function rotate(){

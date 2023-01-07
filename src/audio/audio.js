@@ -1,7 +1,12 @@
 import * as Tone from 'tone';
 
 let audioCtx = new window.AudioContext();
-let effectValues = {};
+let effectValues = {
+    'chorusDelay': 0,
+    'chorusDepth': 0,
+    'Velcotiy': 0,
+    'Distortion': 0
+};
 
 const synth = new Tone.PolySynth();
 const distortion = new Tone.Distortion(effectValues["Distortion"]);
@@ -13,11 +18,8 @@ distortion.toDestination();
 
 
 function updateSynth(){
-    // call function whenever you adjust knob value
-
     chorus.delayTime = effectValues["chorusDelay"];
     chorus.depth = effectValues["chorusDepth"];
-    // chorus.frequency = effectValues["chorusFreq"];
     distortion.distortion = effectValues["Distortion"];
 }
 
