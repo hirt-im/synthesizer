@@ -48,6 +48,7 @@ function Knob(props){
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(2));
         effectValues[props.effectName] = newValue;
+        updateSynth();
     }
 
     function handleMouseMove(e){
@@ -63,7 +64,6 @@ function Knob(props){
         setPrevRot(currRotation);
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
-        updateSynth();
     }
 
     function rotateKnob(e){
