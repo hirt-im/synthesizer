@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { effectValues } from '../audio/audio';
+import { effectValues, updateSynth } from '../audio/audio';
 
 export default function Knob(props){
 
@@ -20,6 +20,7 @@ export default function Knob(props){
 
 
     useEffect(() => {
+        effectValues[props.effectName] = props.value;
         let percentage = props.value / (max - min);
         currRotation = (270 * percentage) - 135;
         rotate();
@@ -46,7 +47,7 @@ export default function Knob(props){
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(2));
-        effectValues[props.label] = newValue;
+        effectValues[props.effectName] = newValue;
     }
 
     function handleMouseMove(e){
@@ -62,6 +63,7 @@ export default function Knob(props){
         setPrevRot(currRotation);
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
+        updateSynth();
     }
 
     function rotateKnob(e){

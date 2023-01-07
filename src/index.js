@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import getFrequency from './audio/frequencies';
-import generateOsc, { audioCtx } from './audio/audio';
+import generateOsc, { audioCtx, routeSynth } from './audio/audio';
 import { synth, effectValues } from './audio/audio';
 import * as Tone from 'tone';
 
