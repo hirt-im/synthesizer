@@ -16,7 +16,7 @@ root.render(
 );
 
 let octave = 4;
-let keypresses = {
+let keyToNote = {
   'z': 'C',
   's': 'C#',
   'x': 'D',
@@ -32,7 +32,7 @@ let keypresses = {
   ',': 'C'
 }
 
-let keypresses2 = {
+let keyToNote2 = {
   'q': 'C',
   '2': 'C#',
   'w': 'D',
@@ -62,50 +62,48 @@ document.addEventListener('keydown', (e) => {
     return;
   }
 
-  if (keypresses[e.key]){
+  if (keyToNote[e.key]){
     if (!currNotes[e.key]){
       if (e.key === ','){
-        synth.triggerAttack(keypresses[e.key] + (octave + 1).toString(), Tone.now(), effectValues["Velocity"]);
+        synth.triggerAttack(keyToNote[e.key] + (octave + 1).toString(), Tone.now(), effectValues["Velocity"]);
       }
       else{
-        synth.triggerAttack(keypresses[e.key] + octave.toString(), Tone.now(), effectValues["Velocity"]);
+        synth.triggerAttack(keyToNote[e.key] + octave.toString(), Tone.now(), effectValues["Velocity"]);
       }
       currNotes[e.key] = true;
     }
     return;
   }
 
-  if (keypresses2[e.key]){
-    octave++;
+  if (keyToNote2[e.key]){
     if (!currNotes[e.key]){
       if (e.key === 'i'){
-        synth.triggerAttack(keypresses2[e.key] + (octave + 1).toString(), Tone.now(), effectValues["Velocity"]);
+        synth.triggerAttack(keyToNote2[e.key] + (octave + 2).toString(), Tone.now(), effectValues["Velocity"]);
       }
       else {
-        synth.triggerAttack(keypresses2[e.key] + octave.toString(), Tone.now(), effectValues["Velocity"]);
+        synth.triggerAttack(keyToNote2[e.key] + (octave + 1).toString(), Tone.now(), effectValues["Velocity"]);
       }
       currNotes[e.key] = true;
     }
-    octave--;
   }
 })
 
 
 document.addEventListener('keyup', (e) => {
 
-  if(keypresses[e.key]){
+  if(keyToNote[e.key]){
     if (e.key === ','){
-      synth.triggerRelease(keypresses[e.key] + (octave + 1).toString());
+      synth.triggerRelease(keyToNote[e.key] + (octave + 1).toString());
     }
-    synth.triggerRelease(keypresses[e.key] + octave.toString());
+    synth.triggerRelease(keyToNote[e.key] + octave.toString());
   }
 
-  if(keypresses2[e.key]){
+  if(keyToNote2[e.key]){
     octave++;
     if (e.key === 'i'){
-      synth.triggerRelease(keypresses2[e.key] + (octave + 1).toString());
+      synth.triggerRelease(keyToNote2[e.key] + (octave + 1).toString());
     }
-    synth.triggerRelease(keypresses2[e.key] + octave.toString());
+    synth.triggerRelease(keyToNote2[e.key] + octave.toString());
     octave--;
   }
   delete currNotes[e.key];

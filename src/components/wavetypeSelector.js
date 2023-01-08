@@ -1,8 +1,9 @@
-import { synth } from "../audio/audio";
+import { synth, effectValues } from "../audio/audio";
 
 export default function WaveTypeSelector(){
 
     function handleChange(e){
+        effectValues['filterType'] = e.target.value;
         synth.set({
             oscillator: {
                 type: e.target.value

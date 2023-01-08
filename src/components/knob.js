@@ -17,6 +17,7 @@ function Knob(props){
 
     let initialY;
     let rotRate = 1;
+    const numDigits = (props.max > 100 ? 0 : 2);
 
 
     useEffect(() => {
@@ -30,12 +31,12 @@ function Knob(props){
     function rotate(){
         if (currRotation < -135){
             currRotation = -135;
-            setValue(min.toFixed(2));
+            setValue(min.toFixed(numDigits));
             return;
         }
         if (currRotation > 135){
             currRotation = 135;
-            setValue(max.toFixed(2));
+            setValue(max.toFixed(numDigits));
             return;
         }
         let knobWrapper = document.getElementById(props.id);
@@ -47,7 +48,7 @@ function Knob(props){
         let currRad = currRotation * (Math.PI / 180);
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = (valueFactor * max) * 100 / 100;
-        setValue(newValue.toFixed(2));
+        setValue(newValue.toFixed(numDigits));
         effectValues[props.effectName] = newValue;
         // updateSynth();
     }

@@ -2,14 +2,17 @@ import * as Tone from 'tone';
 
 let audioCtx = new window.AudioContext();
 let effectValues = {
+    'chorusFreq': 0,
     'chorusDelay': 0,
-    'chorusDepth': 0,
+    'chorusFeedback': 0,
     'Velocity': 0,
     'Distortion': 0,
     'pingpongDelay': 0,
     'pingpongFeedback': 0,
     'vibratoDepth': 0,
-    'vibratoFreq': 0
+    'vibratoFreq': 0,
+    'filterCutoff': 0,
+    'filterType': 'lowpass'
 };
 
 
@@ -22,9 +25,10 @@ synth.set({
 })
 
 let distortion = new Tone.Distortion(effectValues["Distortion"]);
-let chorus = new Tone.Chorus(10,8,0.5);
+let chorus = new Tone.Chorus(0,0,0);
 let pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pinpongFeedback']);
 let vibrato = new Tone.Vibrato(0,0);
+let filter = new Tone.Filter(0, 'lowpass');
 
 synth.connect(chorus);
 chorus.connect(pingPong);
@@ -33,20 +37,18 @@ distortion.toDestination();
 
 
 function updateSynth(){
-
     synth.disconnect();
     distortion.distortion = effectValues["Distortion"] * .75;
-    chorus = new Tone.Chorus(10,8,0.5);
+    chorus = new Tone.Chorus(effectValues['chorusFreq'], effectValues['chorusDelay'], 0);
+    chorus.set({
+        feedback: effectValues['chorusFeedback'] * .9
+    })
     pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pingpongFeedback'] * .9);
     vibrato = new Tone.Vibrato(effectValues['vibratoFreq'], effectValues['vibratoDepth']);
+    filter = new Tone.Filter(effectValues['filterCutoff'], effectValues['filterType']);
 
-    synth.connect(chorus);
-    chorus.connect(pingPong);
-    pingPong.connect(vibrato);
-    vibrato.connect(distortion);
-    distortion.toDestination();
-    console.log(synth);
     
+    synth.chain(chorus, pingPong, vibrato, filter, distortion.toDestination()); 
 }
 
 
@@ -79,4 +81,4 @@ export default function generateOsc(freq){
 
 
 
-export { effectValues, audioCtx, updateSynth , synth };
+export { effectValues, audioCtx, updateSynth , synth, filter };

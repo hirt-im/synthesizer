@@ -98,7 +98,10 @@
   position: relative;
   width: 1em;
   font-size: 1em;
+  align-self: center;
+  text-align: center;
 }
+
 
 .knob-wrapper-wrapper{
   display: flex;
