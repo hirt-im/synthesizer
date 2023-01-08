@@ -29,12 +29,13 @@ function updateSynth(){
     synth.disconnect();
     distortion.distortion = effectValues["Distortion"] * .75;
     chorus = new Tone.Chorus(10,8,0.5);
-    pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pingpongFeedback'] * .7);
-    vibrato = new Tone.Vibrato(0,0);
+    pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pingpongFeedback'] * .9);
+    vibrato = new Tone.Vibrato(effectValues['vibratoFreq'], effectValues['vibratoDepth']);
 
     synth.connect(chorus);
     chorus.connect(pingPong);
-    pingPong.connect(distortion);
+    pingPong.connect(vibrato);
+    vibrato.connect(distortion);
     distortion.toDestination();
 
 
