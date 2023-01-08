@@ -128,3 +128,8 @@
   border: 1px solid white;
   border-radius: 10%;
 }
+
+.knob-group-wrapper-wrapper{
+  display: flex;
+  gap: 2vw;
+}

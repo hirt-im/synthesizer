@@ -4,24 +4,45 @@ let audioCtx = new window.AudioContext();
 let effectValues = {
     'chorusDelay': 0,
     'chorusDepth': 0,
-    'Velcotiy': 0,
-    'Distortion': 0
+    'Velocity': 0,
+    'Distortion': 0,
+    'pingpongDelay': 0,
+    'pingpongFeedback': 0,
+    'vibratoDepth': 0,
+    'vibratoFreq': 0
 };
 
-const synth = new Tone.PolySynth();
-const distortion = new Tone.Distortion(effectValues["Distortion"]);
-const chorus = new Tone.Chorus(10,8,0.5);
+let synth = new Tone.PolySynth();
+let distortion = new Tone.Distortion(effectValues["Distortion"]);
+let chorus = new Tone.Chorus(10,8,0.5);
+let pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pinpongFeedback']);
+let vibrato = new Tone.Vibrato(0,0);
 
 synth.connect(chorus);
-chorus.connect(distortion);
+chorus.connect(pingPong);
+pingPong.connect(distortion);
 distortion.toDestination();
 
 
 function updateSynth(){
-    chorus.delayTime = effectValues["chorusDelay"];
-    chorus.depth = effectValues["chorusDepth"];
-    distortion.distortion = effectValues["Distortion"];
+
+    synth.disconnect();
+    distortion.distortion = effectValues["Distortion"] * .75;
+    chorus = new Tone.Chorus(10,8,0.5);
+    pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pingpongFeedback'] * .7);
+    vibrato = new Tone.Vibrato(0,0);
+
+    synth.connect(chorus);
+    chorus.connect(pingPong);
+    pingPong.connect(distortion);
+    distortion.toDestination();
+
+
+    console.log(effectValues);
+
 }
+
+
 
 
 
