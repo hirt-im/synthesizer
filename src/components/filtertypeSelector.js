@@ -11,6 +11,7 @@ export default function FilterTypeSelector(){
 
     return(
         <div>
+            <div className="type-label">Shape</div>
             <select onChange={handleChange}>
                 <option value="lowpass">lowpass</option>
                 <option value="highpass">highpass</option>
@@ -19,6 +20,10 @@ export default function FilterTypeSelector(){
                 <option value="bandpass">bandpass</option>
                 <option value="notch">notch</option>
             </select>
+            <div className="selection-type">
+                {/*image for filter type goes here */}
+                svg goes here
+            </div>
         </div>
     );
 }
