@@ -12,7 +12,15 @@ let effectValues = {
     'vibratoFreq': 0
 };
 
+
 let synth = new Tone.PolySynth();
+
+synth.set({
+    oscillator: {
+        type: "sine"
+    }
+})
+
 let distortion = new Tone.Distortion(effectValues["Distortion"]);
 let chorus = new Tone.Chorus(10,8,0.5);
 let pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pinpongFeedback']);
@@ -37,10 +45,8 @@ function updateSynth(){
     pingPong.connect(vibrato);
     vibrato.connect(distortion);
     distortion.toDestination();
-
-
-    console.log(effectValues);
-
+    console.log(synth);
+    
 }
 
 

@@ -45,9 +45,11 @@ document.addEventListener('keydown', (e) => {
     if (!currNotes[e.key]){
       if (e.key === 'k'){
         synth.triggerAttack(keypresses[e.key] + (octave + 1).toString(), Tone.now(), effectValues["Velocity"]);
+        // synth.triggerAttack(keypresses[e.key] + (octave + 1).toString(), Tone.now());
       }
       else {
         synth.triggerAttack(keypresses[e.key] + octave.toString(), Tone.now(), effectValues["Velocity"]);
+        // synth.triggerAttack(keypresses[e.key] + octave.toString(), Tone.now());
       }
       currNotes[e.key] = true;
     }

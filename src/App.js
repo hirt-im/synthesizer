@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Keyboard from './components/keyboard';
 import { Knob, KnobGroup } from './components/knob';
+import WaveTypeSelector from './components/wavetypeSelector';
 
 
 function App() {
@@ -24,7 +25,6 @@ function App() {
         </div>
         
         <div className='knobs'>
-          <Knob rotation="-120" value="0.1" min="0" max="30" id="8" label="Vibrato" effectName="vibrato"/>
           {/* <Knob rotation="-120" value="0.1" min="0" max="1" id="0" label="Gain" effectName="Gain"/> */}
           <Knob rotation="-120" value="0.4" min="0" max="1" id="2" label="Velocity" effectName="Velocity"/>
           {/* <Knob rotation="-120" value="34.00" min="0" max="120" id="2" label="Reverb" effectName="Reverb"/> */}
@@ -34,6 +34,7 @@ function App() {
           {/* <Knob rotation="-120" value="0.1" min="0" max="10" id="6" label="Chorus1" effectName="chorusFreq"/> */}
           
         </div>
+        <WaveTypeSelector />
         <Keyboard />
       </header>
     </div>
