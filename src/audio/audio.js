@@ -12,13 +12,13 @@ synth.set({
 
 let distortion = new Tone.Distortion(currSettings["Distortion"]);
 let chorus = new Tone.Chorus(0,0,0);
-let pingPong = new Tone.PingPongDelay(currSettings['pingpongDelay'], currSettings['pinpongFeedback']);
+// let pingPong = new Tone.PingPongDelay(currSettings['pingpongDelay'], currSettings['pinpongFeedback']);
 let vibrato = new Tone.Vibrato(0,0);
 let filter = new Tone.Filter(0, 'lowpass');
 
 synth.connect(chorus);
-chorus.connect(pingPong);
-pingPong.connect(distortion);
+chorus.connect(distortion);
+// pingPong.connect(distortion);
 distortion.toDestination();
 
 
@@ -29,12 +29,12 @@ function updateSynth(){
     chorus.set({
         feedback: currSettings.chorusFeedback * .9
     })
-    pingPong = new Tone.PingPongDelay(currSettings.pingpongDelay, currSettings.pingpongFeedback * .9);
+    // pingPong = new Tone.PingPongDelay(currSettings.pingpongDelay, currSettings.pingpongFeedback * .9);
     vibrato = new Tone.Vibrato(currSettings.vibratoFreq, currSettings.vibratoDepth);
     filter = new Tone.Filter(currSettings.filterCutoff, currSettings.filterType);
 
     
-    synth.chain(chorus, pingPong, vibrato, filter, distortion.toDestination()); 
+    synth.chain(chorus, vibrato, filter, distortion.toDestination()); 
 }
 
 

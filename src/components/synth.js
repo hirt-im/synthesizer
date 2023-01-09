@@ -58,10 +58,10 @@ export default function Synth(){
                 <Knob rotation="-120" value={settings.chorusFeedback} min="0" max="1" id="1" label="Feedback" effectName="chorusFeedback"/>
             </KnobGroup>
 
-            <KnobGroup label="Ping Pong Delay">
+            {/* <KnobGroup label="Ping Pong Delay">
                 <Knob rotation="-120" value={settings.pingpongDelay} min="0" max="1" id="4" label="Delay" effectName="pingpongDelay"/>
                 <Knob rotation="-120" value={settings.pingpongFeedback} min="0" max="1" id="5" label="Feedback" effectName="pingpongFeedback"/>
-            </KnobGroup>
+            </KnobGroup> */}
             
             <KnobGroup label="Vibrato">
                 <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
@@ -80,6 +80,7 @@ export default function Synth(){
                 <select value={settings.name} onChange={handleChange}>
                     <option value="test1">test1</option>
                     <option value="dreary">dreary</option>
+                    <option value="test3">test3</option>
                 </select>
             </div>
         </div>
