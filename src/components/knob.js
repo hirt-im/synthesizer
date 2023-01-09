@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { effectValues, updateSynth } from '../audio/audio';
+import { updateSynth } from '../audio/audio';
+import { currSettings } from './synth';
 
 function Knob(props){
 
@@ -21,11 +22,11 @@ function Knob(props){
 
 
     useEffect(() => {
-        effectValues[props.effectName] = props.value;
+        currSettings[props.effectName] = props.value;
         let percentage = props.value / (max - min);
         currRotation = (270 * percentage) - 135;
         rotate();
-        console.log(effectValues);
+        console.log(currSettings);
     }, [])
     
     function rotate(){
@@ -49,7 +50,7 @@ function Knob(props){
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(numDigits));
-        effectValues[props.effectName] = newValue;
+        currSettings[props.effectName] = newValue;
         // updateSynth();
     }
 

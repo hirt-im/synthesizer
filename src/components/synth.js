@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { presets } from '../audio/presets';
 import { KnobGroup, Knob } from './knob';
 import WaveTypeSelector from './wavetypeSelector';
 import FilterTypeSelector from './filtertypeSelector'
+import { updateSynth } from "../audio/audio";
 
 let currSettings = {
     name: 'curr',
@@ -15,14 +16,18 @@ let currSettings = {
     pingpongFeedback: 0,
     vibratoDepth: 0,
     vibratoFreq: 0,
-    filterCutoff: 3432,
-    filterType: 'lowpass',
-    waveType: 'triangle'
+    filterCutoff: 1232,
+    filterType: 'highpass',
+    waveType: 'sawtooth'
 };
 
 
 export default function Synth(){
     const [settings, setSettings] = useState(currSettings);
+
+    useEffect(() => {
+        updateSynth();
+    }, [])
 
     function handleChange(e){
         console.log(presets[e.target.value]);
@@ -74,3 +79,5 @@ export default function Synth(){
         </div>
     );
 }
+
+export { currSettings };
