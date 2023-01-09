@@ -12,7 +12,8 @@ let effectValues = {
     'vibratoDepth': 0,
     'vibratoFreq': 0,
     'filterCutoff': 0,
-    'filterType': 'lowpass'
+    'filterType': 'lowpass',
+    'waveType': 'sine'
 };
 
 
@@ -46,7 +47,7 @@ function updateSynth(){
     pingPong = new Tone.PingPongDelay(effectValues['pingpongDelay'], effectValues['pingpongFeedback'] * .9);
     vibrato = new Tone.Vibrato(effectValues['vibratoFreq'], effectValues['vibratoDepth']);
     filter = new Tone.Filter(effectValues['filterCutoff'], effectValues['filterType']);
-
+    console.log(filter.gain);
     
     synth.chain(chorus, pingPong, vibrato, filter, distortion.toDestination()); 
 }

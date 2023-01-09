@@ -1,6 +1,6 @@
 import generateOsc from '../audio/audio.js';
 import getFrequency from '../audio/frequencies';
-import { octave } from '../index.js';
+import { octave } from '../index';
 
 
 export default function Key(props){
