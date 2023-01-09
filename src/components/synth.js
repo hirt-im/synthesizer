@@ -22,16 +22,24 @@ let currSettings = {
 };
 
 
+// let currSettings = presets['dreary'];
+// WHY DOESNT THIS WORK???
+
+
 export default function Synth(){
     const [settings, setSettings] = useState(currSettings);
 
     useEffect(() => {
+        setSettings(currSettings);
         updateSynth();
-    }, [])
+        console.log(settings);
+        console.log(presets['dreary']);
+    }, [currSettings])
 
     function handleChange(e){
         console.log(presets[e.target.value]);
-        setSettings(presets[e.target.value]);
+        currSettings = presets[e.target.value];
+        setSettings(currSettings);
         console.log(settings);
     }
 

@@ -26,8 +26,7 @@ function Knob(props){
         let percentage = props.value / (max - min);
         currRotation = (270 * percentage) - 135;
         rotate();
-        console.log(currSettings);
-    }, [])
+    }, [currSettings[props.effectName]])
     
     function rotate(){
         if (currRotation < -135){

@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { synth, effectValues } from './audio/audio';
+import { synth } from './audio/audio';
 import * as Tone from 'tone';
 import { keyToNote, updateKeyToNote } from './audio/keyToNote';
+import { currSettings } from './components/synth';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -34,7 +35,7 @@ document.addEventListener('keydown', (e) => {
 
   if (keyToNote[e.key]){
     if (!currNotes[e.key]){
-      synth.triggerAttack(keyToNote[e.key], Tone.now(), effectValues["Velocity"]);
+      synth.triggerAttack(keyToNote[e.key], Tone.now(), currSettings.Velocity);
       }
     currNotes[e.key] = true;
     }

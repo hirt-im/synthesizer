@@ -27,7 +27,7 @@ let presets = {
         vibratoDepth: 0,
         vibratoFreq: 0,
         filterCutoff: 330,
-        filterType: 'lowpass',
+        filterType: 'highpass',
         waveType: 'triangle'
     }
 }

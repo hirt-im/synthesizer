@@ -1,13 +1,19 @@
-import { effectValues, synth, updateSynth, filter } from "../audio/audio";
-import { useState } from "react";
+import { synth, updateSynth, filter } from "../audio/audio";
+import { useEffect, useState } from "react";
+import { currSettings } from "./synth";
 
 export default function FilterTypeSelector(props){
 
     const [filter, setFilter] = useState(props.filter);
 
+    useEffect(() => {
+        setFilter(currSettings.filterType);
+        updateSynth();
+    }, [currSettings.filterType])
+
     function handleChange(e){
         setFilter(e.target.value);
-        effectValues['filterType'] = e.target.value;
+        currSettings['filterType'] = e.target.value;
         updateSynth();
     }
 

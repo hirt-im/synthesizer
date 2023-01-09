@@ -6,7 +6,7 @@ let synth = new Tone.PolySynth();
 
 synth.set({
     oscillator: {
-        type: "sine"
+        type: currSettings.waveType
     }
 })
 
