@@ -8,9 +8,7 @@ export default function FilterTypeSelector(props){
     function handleChange(e){
         setFilter(e.target.value);
         effectValues['filterType'] = e.target.value;
-        filter.set({
-            type: e.target.value
-        })
+        updateSynth();
     }
 
     return(
