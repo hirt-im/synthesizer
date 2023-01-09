@@ -1,8 +1,12 @@
 import { effectValues, synth, updateSynth, filter } from "../audio/audio";
+import { useState } from "react";
 
 export default function FilterTypeSelector(){
 
+    const [filter, setFilter] = useState('lowpass');
+
     function handleChange(e){
+        setFilter(e.target.value);
         effectValues['filterType'] = e.target.value;
         filter.set({
             type: e.target.value
@@ -21,8 +25,7 @@ export default function FilterTypeSelector(){
                 <option value="notch">notch</option>
             </select>
             <div className="selection-type">
-                {/*image for filter type goes here */}
-                svg goes here
+                <img className='selection-image' src={'../icons/filter-' + filter + '.svg'}></img>
             </div>
         </div>
     );

@@ -135,3 +135,8 @@
   height: 40%;
   font-size: .5em;
 }
+
+.selection-image{
+  height: 8vw;
+  width: 8vw;
+}
