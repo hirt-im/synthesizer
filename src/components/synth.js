@@ -38,8 +38,7 @@ export default function Synth(){
     function handleChange(e){
         console.log(presets[e.target.value]);
         currSettings = presets[e.target.value];
-        setSettings(currSettings);
-        console.log(settings);
+        setSettings(currSettings);        
     }
 
     return(

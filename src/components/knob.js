@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { updateSynth } from '../audio/audio';
 import { currSettings } from './synth';
+import { establishPresets } from '../audio/presets';
 
 function Knob(props){
 
-    // const knobNum = parseInt(props.id);
     const [prevRotation, setPrevRot] = useState(props.rotation);
     const [value, setValue] = useState(props.value);
     let currValue = parseInt(props.value);
@@ -28,7 +28,6 @@ function Knob(props){
         currRotation = (270 * percentage) - 135;
         rotate();
         setPrevRot(currRotation);
-        // updateSynth();
     }, [currSettings[props.effectName]])
     
     function rotate(){
@@ -54,7 +53,6 @@ function Knob(props){
         setValue(newValue.toFixed(numDigits));
         currValue = newValue;
         console.log('this: ' + currSettings[props.effectName]);
-        // updateSynth();
     }
 
     function handleMouseMove(e){
@@ -74,6 +72,7 @@ function Knob(props){
         document.removeEventListener('mouseup', handleMouseUp);
         console.log(currSettings[props.effectName], value);
         updateSynth();
+        establishPresets();
     }
 
     function rotateKnob(e){
