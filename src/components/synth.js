@@ -30,10 +30,10 @@ let currSettings = presets['dreary'];
 export default function Synth(){
     const [settings, setSettings] = useState(currSettings);
 
-    useEffect(() => {
-        setSettings(currSettings);
-        updateSynth();
-    }, [currSettings])
+    // useEffect(() => {
+    //     setSettings(currSettings);
+    //     updateSynth();
+    // }, [currSettings])
 
     function handleChange(e){
         console.log(presets[e.target.value]);

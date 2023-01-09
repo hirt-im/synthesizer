@@ -7,6 +7,7 @@ function Knob(props){
     // const knobNum = parseInt(props.id);
     const [prevRotation, setPrevRot] = useState(props.rotation);
     const [value, setValue] = useState(props.value);
+    let currValue = parseInt(props.value);
     let currRotation = parseInt(prevRotation);
 
     const min = parseInt(props.min);
@@ -22,10 +23,12 @@ function Knob(props){
 
 
     useEffect(() => {
-        currSettings[props.effectName] = props.value;
-        let percentage = props.value / (max - min);
+        setValue(currSettings[props.effectName]);
+        let percentage = currSettings[props.effectName] / (max - min);
         currRotation = (270 * percentage) - 135;
         rotate();
+        setPrevRot(currRotation);
+        // updateSynth();
     }, [currSettings[props.effectName]])
     
     function rotate(){
@@ -49,8 +52,8 @@ function Knob(props){
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(numDigits));
-        // currSettings[props.effectName] = newValue;
-        console.log(currSettings[props.effectName]);
+        currValue = newValue;
+        console.log('this: ' + currSettings[props.effectName]);
         // updateSynth();
     }
 
@@ -61,13 +64,15 @@ function Knob(props){
         currRotation -= rotation;
         rotate();
         initialY = e.clientY;
+        setPrevRot(currRotation);
     }
 
     function handleMouseUp(){
-        currSettings[props.effectName] = value;
+        currSettings[props.effectName] = currValue;
         setPrevRot(currRotation);
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
+        console.log(currSettings[props.effectName], value);
         updateSynth();
     }
 
