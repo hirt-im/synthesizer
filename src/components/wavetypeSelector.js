@@ -1,8 +1,13 @@
 import { synth, effectValues } from "../audio/audio";
+import { useState } from "react";
+
 
 export default function WaveTypeSelector(){
 
+    const [wave, setWave] = useState('sine');
+
     function handleChange(e){
+        setWave(e.target.value);
         effectValues['waveType'] = e.target.value;
         synth.set({
             oscillator: {
@@ -15,15 +20,21 @@ export default function WaveTypeSelector(){
         <div>
             <div className='type-label'>Waveform</div>
             <select onChange={handleChange}>
-                <option value="sine">Sine</option>
-                <option value="triangle">Triangle</option>
-                <option value="square">Square</option>
-                <option value="sawtooth">Sawtooth</option>
+                <option value="sine">sine</option>
+                <option value="triangle">triangle</option>
+                <option value="square">square</option>
+                <option value="sawtooth">sawtooth</option>
             </select>
             <div className="selection-type">
-                {/*image for wave type goes here */}
-                svg goes here
+                <WaveIcon wave={wave} />
             </div>
         </div>
+    );
+}
+
+
+function WaveIcon(props){
+    return(
+        <img src={'../icons/wave-' + props.wave + '.svg'}></img>
     );
 }
