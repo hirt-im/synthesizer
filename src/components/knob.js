@@ -49,7 +49,8 @@ function Knob(props){
         let valueFactor = (currRad + maxRad) / slidingMax;
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(numDigits));
-        currSettings[props.effectName] = newValue;
+        // currSettings[props.effectName] = newValue;
+        console.log(currSettings[props.effectName]);
         // updateSynth();
     }
 
@@ -63,6 +64,7 @@ function Knob(props){
     }
 
     function handleMouseUp(){
+        currSettings[props.effectName] = value;
         setPrevRot(currRotation);
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);

@@ -24,14 +24,14 @@ distortion.toDestination();
 
 function updateSynth(){
     synth.disconnect();
-    distortion.distortion = currSettings["Distortion"] * .75;
-    chorus = new Tone.Chorus(currSettings['chorusFreq'], currSettings['chorusDelay'], 0);
+    distortion.distortion = currSettings.Distortion * .75;
+    chorus = new Tone.Chorus(currSettings.chorusFreq, currSettings.chorusDelay, 0);
     chorus.set({
-        feedback: currSettings['chorusFeedback'] * .9
+        feedback: currSettings.chorusFeedback * .9
     })
-    pingPong = new Tone.PingPongDelay(currSettings['pingpongDelay'], currSettings['pingpongFeedback'] * .9);
-    vibrato = new Tone.Vibrato(currSettings['vibratoFreq'], currSettings['vibratoDepth']);
-    filter = new Tone.Filter(currSettings['filterCutoff'], currSettings['filterType']);
+    pingPong = new Tone.PingPongDelay(currSettings.pingpongDelay, currSettings.pingpongFeedback * .9);
+    vibrato = new Tone.Vibrato(currSettings.vibratoFreq, currSettings.vibratoDepth);
+    filter = new Tone.Filter(currSettings.filterCutoff, currSettings.filterType);
 
     
     synth.chain(chorus, pingPong, vibrato, filter, distortion.toDestination()); 
