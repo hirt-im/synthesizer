@@ -2,9 +2,9 @@ import { synth, effectValues } from "../audio/audio";
 import { useState } from "react";
 
 
-export default function WaveTypeSelector(){
+export default function WaveTypeSelector(props){
 
-    const [wave, setWave] = useState('sine');
+    const [wave, setWave] = useState(props.wave);
 
     function handleChange(e){
         setWave(e.target.value);
@@ -19,7 +19,7 @@ export default function WaveTypeSelector(){
     return(
         <div>
             <div className='type-label'>Waveform</div>
-            <select onChange={handleChange}>
+            <select value={wave} onChange={handleChange}>
                 <option value="sine">sine</option>
                 <option value="triangle">triangle</option>
                 <option value="square">square</option>

@@ -3,13 +3,14 @@ import Keyboard from './components/keyboard';
 import { Knob, KnobGroup } from './components/knob';
 import WaveTypeSelector from './components/wavetypeSelector';
 import FilterTypeSelector from './components/filtertypeSelector';
+import Synth from './components/synth';
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className='knob-group-wrapper-wrapper'>
+        {/* <div className='knob-group-wrapper-wrapper'>
           <KnobGroup label="Oscillator">
             <WaveTypeSelector />  
           </KnobGroup>
@@ -29,7 +30,7 @@ function App() {
             <Knob rotation="-120" value="0" min="0" max="1" id="4" label="Delay" effectName="pingpongDelay"/>
             <Knob rotation="-120" value="0" min="0" max="1" id="5" label="Feedback" effectName="pingpongFeedback"/>
           </KnobGroup>
-          
+
           <KnobGroup label="Vibrato">
             <Knob rotation="-120" value="0" min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
             <Knob rotation="-120" value="0" min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
@@ -40,7 +41,8 @@ function App() {
           <Knob rotation="-120" value="0.4" min="0" max="1" id="2" label="Velocity" effectName="Velocity"/>
           <Knob rotation="-120" value="0.1" min="0" max="1" id="3" label="Distortion" effectName="Distortion"/>
         </div>
-        <Keyboard />
+        <Keyboard /> */}
+      <Synth />
       </header>
     </div>
   );

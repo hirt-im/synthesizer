@@ -1,9 +1,9 @@
 import { effectValues, synth, updateSynth, filter } from "../audio/audio";
 import { useState } from "react";
 
-export default function FilterTypeSelector(){
+export default function FilterTypeSelector(props){
 
-    const [filter, setFilter] = useState('lowpass');
+    const [filter, setFilter] = useState(props.filter);
 
     function handleChange(e){
         setFilter(e.target.value);
@@ -16,7 +16,7 @@ export default function FilterTypeSelector(){
     return(
         <div>
             <div className="type-label">Shape</div>
-            <select onChange={handleChange}>
+            <select value={filter} onChange={handleChange}>
                 <option value="lowpass">lowpass</option>
                 <option value="highpass">highpass</option>
                 <option value="lowshelf">lowshelf</option>
