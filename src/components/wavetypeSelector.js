@@ -26,15 +26,8 @@ export default function WaveTypeSelector(){
                 <option value="sawtooth">sawtooth</option>
             </select>
             <div className="selection-type">
-                <WaveIcon wave={wave} />
+                <img src={'../icons/wave-' + wave + '.svg'}></img>
             </div>
         </div>
-    );
-}
-
-
-function WaveIcon(props){
-    return(
-        <img src={'../icons/wave-' + props.wave + '.svg'}></img>
     );
 }
