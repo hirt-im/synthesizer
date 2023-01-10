@@ -15,8 +15,9 @@ synth.set({
     }
 })
 
+synth.chain(chorus, vibrato, filter, compressor.toDestination()); 
+
 function updateSynth(){
-    synth.disconnect();
 
     distortion.distortion = currSettings.Distortion * .75;
 
@@ -48,8 +49,6 @@ function updateSynth(){
             type: currSettings.waveType
         }
     })
-
-    synth.chain(chorus, vibrato, filter, compressor.toDestination()); 
 }
 
 
