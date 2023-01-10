@@ -6,26 +6,9 @@ import FilterTypeSelector from './filtertypeSelector'
 import { updateSynth } from "../audio/audio";
 import { octave } from '../index';
 
-// let currSettings = {
-//     name: 'curr',
-//     chorusFreq: 0,
-//     chorusDelay: 0,
-//     chorusFeedback: 0,
-//     Velocity: 0.3,
-//     Distortion: 0.1,
-//     pingpongDelay: 0,
-//     pingpongFeedback: 0,
-//     vibratoDepth: 0,
-//     vibratoFreq: 0,
-//     filterCutoff: 1232,
-//     filterType: 'highpass',
-//     waveType: 'sawtooth'
-// };
-
 
 
 let currSettings = presets['dreary'];
-// WHY DOESNT THIS WORK???
 
 
 export default function Synth(){

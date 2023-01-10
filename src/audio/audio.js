@@ -43,6 +43,9 @@ function updateSynth(){
             decay: currSettings.envDecay,
             sustain: currSettings.envSustain,
             release: currSettings.envRelease
+        },
+        oscillator: {
+            type: currSettings.waveType
         }
     })
 
