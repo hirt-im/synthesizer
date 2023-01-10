@@ -44,6 +44,8 @@ function Knob(props){
         let knobWrapper = document.getElementById(props.id);
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
         calculateValue();
+        currSettings[props.effectName] = currValue;
+        updateSynth();
     }
 
     function calculateValue(){
