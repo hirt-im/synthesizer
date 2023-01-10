@@ -39,7 +39,7 @@ function establishPresets(){
             waveType: 'triangle',
             octave: 4,
             envAttack: 0.3,
-            envDecay: 0.3,
+            envDecay: 0.2,
             envSustain: 0.3,
             envRelease: 0.3
         },

@@ -3,6 +3,11 @@ import { currSettings } from '../components/synth';
 
 let audioCtx = new window.AudioContext();
 let synth = new Tone.PolySynth();
+let distortion = new Tone.Distortion(currSettings["Distortion"]);
+let chorus = new Tone.Chorus(0,0,0);
+let vibrato = new Tone.Vibrato(0,0);
+let filter = new Tone.Filter(0, 'lowpass');
+let compressor = new Tone.Compressor(-30, 2);
 
 synth.set({
     oscillator: {
@@ -10,32 +15,26 @@ synth.set({
     }
 })
 
-let distortion = new Tone.Distortion(currSettings["Distortion"]);
-let chorus = new Tone.Chorus(0,0,0);
-// let pingPong = new Tone.PingPongDelay(currSettings['pingpongDelay'], currSettings['pinpongFeedback']);
-let vibrato = new Tone.Vibrato(0,0);
-let filter = new Tone.Filter(0, 'lowpass');
-let compressor = new Tone.Compressor(-30, 2);
-// let env = new Tone.Envelope(currSettings.envAttack, currSettings.envDecay, currSettings.envSustain, currSettings.envRelease);
-let env = new Tone.Envelope(0.1, 0.1, 0.1, 0.1);
-
-
-synth.connect(chorus);
-chorus.connect(distortion);
-// pingPong.connect(distortion);
-distortion.toDestination();
-
-
 function updateSynth(){
     synth.disconnect();
+
     distortion.distortion = currSettings.Distortion * .75;
-    chorus = new Tone.Chorus(currSettings.chorusFreq, currSettings.chorusDelay, 0);
+
     chorus.set({
-        feedback: currSettings.chorusFeedback * .9
+        feedback: currSettings.chorusFeedback * .9,
+        frequency: currSettings.chorusFreq,
+        delayTime: currSettings.chorusDelay
     })
-    // pingPong = new Tone.PingPongDelay(currSettings.pingpongDelay, currSettings.pingpongFeedback * .9);
-    vibrato = new Tone.Vibrato(currSettings.vibratoFreq, currSettings.vibratoDepth);
-    filter = new Tone.Filter(currSettings.filterCutoff, currSettings.filterType);
+
+    vibrato.set({
+        frequency: currSettings.vibratoFreq,
+        depth: currSettings.vibratoDepth
+    })
+
+    filter.set({
+        frequency: currSettings.filterCutoff,
+        type: currSettings.filterType
+    })
     
     synth.set({
         envelope:{
@@ -47,11 +46,6 @@ function updateSynth(){
         }
     })
 
-
-    console.log(synth.options);
-
-    console.log(synth.options.envelope.attack);
-    
     synth.chain(chorus, vibrato, filter, compressor.toDestination()); 
 }
 
