@@ -4,6 +4,7 @@ import { KnobGroup, Knob } from './knob';
 import WaveTypeSelector from './wavetypeSelector';
 import FilterTypeSelector from './filtertypeSelector'
 import { updateSynth } from "../audio/audio";
+import { octave } from '../index';
 
 // let currSettings = {
 //     name: 'curr',
@@ -38,11 +39,17 @@ export default function Synth(){
     function handleChange(e){
         console.log(presets[e.target.value]);
         currSettings = presets[e.target.value];
-        setSettings(currSettings);        
+        setSettings(currSettings);
     }
 
     return(
         <div className='synth-wrapper'>
+            <KnobGroup label="Envelope">
+                <Knob rotation="-120" value={settings.envAttack} min="0" max="2" id="12" label="Attack" effectName="envAttack"/>
+                <Knob rotation="-120" value={settings.envDecay} min="0" max="2" id="13" label="Decay" effectName="envDecay"/>
+                <Knob rotation="-120" value={settings.envSustain} min="0" max="1" id="14" label="Sustain" effectName="envSustain"/>
+                <Knob rotation="-120" value={settings.envRelease} min="0" max="2" id="15" label="Release" effectName="envRelease"/>
+            </KnobGroup>
             <KnobGroup label="Oscillator">
                 <WaveTypeSelector wave={settings.waveType} />  
             </KnobGroup>

@@ -16,6 +16,7 @@ root.render(
 );
 
 let octave = 4;
+
 updateKeyToNote();
 
 let currNotes = {};

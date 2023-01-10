@@ -15,6 +15,10 @@ let chorus = new Tone.Chorus(0,0,0);
 // let pingPong = new Tone.PingPongDelay(currSettings['pingpongDelay'], currSettings['pinpongFeedback']);
 let vibrato = new Tone.Vibrato(0,0);
 let filter = new Tone.Filter(0, 'lowpass');
+let compressor = new Tone.Compressor(-30, 2);
+// let env = new Tone.Envelope(currSettings.envAttack, currSettings.envDecay, currSettings.envSustain, currSettings.envRelease);
+let env = new Tone.Envelope(0.1, 0.1, 0.1, 0.1);
+
 
 synth.connect(chorus);
 chorus.connect(distortion);
@@ -32,9 +36,23 @@ function updateSynth(){
     // pingPong = new Tone.PingPongDelay(currSettings.pingpongDelay, currSettings.pingpongFeedback * .9);
     vibrato = new Tone.Vibrato(currSettings.vibratoFreq, currSettings.vibratoDepth);
     filter = new Tone.Filter(currSettings.filterCutoff, currSettings.filterType);
-
     
-    synth.chain(chorus, vibrato, filter, distortion.toDestination()); 
+    synth.set({
+        envelope:{
+            decayCurve: 'linear',
+            attack: currSettings.envAttack,
+            decay: currSettings.envDecay,
+            sustain: currSettings.envSustain,
+            release: currSettings.envRelease
+        }
+    })
+
+
+    console.log(synth.options);
+
+    console.log(synth.options.envelope.attack);
+    
+    synth.chain(compressor, chorus, vibrato, filter.toDestination()); 
 }
 
 
