@@ -43,25 +43,25 @@ function establishPresets(){
             envSustain: 0.3,
             envRelease: 0.3
         },
-        "test3": {
-            name: 'test3',
-            chorusFreq: 20,
-            chorusDelay: 0,
-            chorusFeedback: 0,
-            Velocity: .1,
+        "ringing": {
+            name: 'ringing',
+            chorusFreq: 30,
+            chorusDelay: 88,
+            chorusFeedback: .9,
+            Velocity: .15,
             Distortion: 0,
             pingpongDelay: 0,
             pingpongFeedback: 0,
             vibratoDepth: 0,
             vibratoFreq: 0,
-            filterCutoff: 3444,
-            filterType: 'lowpass',
-            waveType: 'sawtooth',
-            octave: 2,
-            envAttack: 0.3,
+            filterCutoff: 300,
+            filterType: 'highpass',
+            waveType: 'triangle',
+            octave: 5,
+            envAttack: 0,
             envDecay: 0.3,
-            envSustain: 0.3,
-            envRelease: 0.3
+            envSustain: 0.22,
+            envRelease: 0.16
         }
     }
 }

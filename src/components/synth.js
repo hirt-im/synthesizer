@@ -19,12 +19,13 @@ export default function Synth(){
         octave.octave = currSettings.octave;
         updateKeyToNote();
     }, [currSettings.octave])
-    
+
 
     function handleChange(e){
         console.log(presets[e.target.value]);
         currSettings = presets[e.target.value];
         setSettings(currSettings);
+        updateSynth();
     }
 
     return(
@@ -72,7 +73,7 @@ export default function Synth(){
                 <select value={settings.name} onChange={handleChange}>
                     <option value="test1">test1</option>
                     <option value="dreary">dreary</option>
-                    <option value="test3">test3</option>
+                    <option value="ringing">ringing</option>
                 </select>
             </div>
         </div>
