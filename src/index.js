@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -15,7 +15,9 @@ root.render(
   </React.StrictMode>
 );
 
-let octave = 4;
+let octave = {
+  octave: 4
+}
 
 updateKeyToNote();
 
@@ -23,13 +25,13 @@ let currNotes = {};
 document.addEventListener('keydown', (e) => {
 
   if (e.key === '/'){
-    octave++;
+    octave.octave++;
     updateKeyToNote();
     return;
   }
 
   if (e.key === '.'){
-    octave--;
+    octave.octave--;
     updateKeyToNote();
     return;
   }

@@ -5,6 +5,7 @@ import WaveTypeSelector from './wavetypeSelector';
 import FilterTypeSelector from './filtertypeSelector'
 import { updateSynth } from "../audio/audio";
 import { octave } from '../index';
+import { updateKeyToNote } from "../audio/keyToNote";
 
 
 
@@ -14,10 +15,11 @@ let currSettings = presets['dreary'];
 export default function Synth(){
     const [settings, setSettings] = useState(currSettings);
 
-    // useEffect(() => {
-    //     setSettings(currSettings);
-    //     updateSynth();
-    // }, [currSettings])
+    useEffect(() => {
+        octave.octave = currSettings.octave;
+        updateKeyToNote();
+    }, [currSettings.octave])
+    
 
     function handleChange(e){
         console.log(presets[e.target.value]);

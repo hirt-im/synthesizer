@@ -52,7 +52,6 @@ function Knob(props){
         let newValue = (valueFactor * max) * 100 / 100;
         setValue(newValue.toFixed(numDigits));
         currValue = newValue;
-        console.log('this: ' + currSettings[props.effectName]);
     }
 
     function handleMouseMove(e){
@@ -70,7 +69,6 @@ function Knob(props){
         setPrevRot(currRotation);
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
-        console.log(currSettings[props.effectName], value);
         updateSynth();
         establishPresets();
     }

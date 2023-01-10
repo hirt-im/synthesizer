@@ -82,4 +82,4 @@ export default function generateOsc(freq){
 
 
 
-export { currSettings as effectValues, audioCtx, updateSynth , synth, filter };
+export { audioCtx, updateSynth , synth, filter };
