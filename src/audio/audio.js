@@ -52,7 +52,7 @@ function updateSynth(){
 
     console.log(synth.options.envelope.attack);
     
-    synth.chain(compressor, chorus, vibrato, filter.toDestination()); 
+    synth.chain(chorus, vibrato, filter, compressor.toDestination()); 
 }
 
 
