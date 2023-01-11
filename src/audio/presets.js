@@ -91,6 +91,28 @@ function establishPresets(){
             reverbDecay: 0.5,
             reverbDryWet: 0.33
         },
+        "epic": {
+            name: 'epic',
+            chorusFreq: 0,
+            chorusDelay: 0,
+            chorusFeedback: 1,
+            Velocity: .16,
+            Distortion: 0,
+            pingpongDelay: 0,
+            pingpongFeedback: 0,
+            vibratoDepth: .08,
+            vibratoFreq: 0.56,
+            filterCutoff: 3667,
+            filterType: 'lowpass',
+            waveType: 'sawtooth',
+            octave: 3,
+            envAttack: 0,
+            envDecay: 0.85,
+            envSustain: 0.58,
+            envRelease: 1.35,
+            reverbDecay: 1.11,
+            reverbDryWet: 0.53
+        },
         "robot emoji": {
             name: 'robot emoji',
             chorusFreq: 0,

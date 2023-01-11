@@ -78,15 +78,14 @@ export default function Synth(){
             <div>
                 <div className='preset-label'>Preset</div>
                 <select value={settings.name} onChange={handleChange}>
-                    <option value="soothing">soothing</option>
-                    <option value="dreary">dreary</option>
-                    <option value="ringing">ringing</option>
-                    <option value="vibing">vibing</option>
-                    <option value="robot emoji">robot emoji</option>
+                    {presetOptions}
                 </select>
             </div>
         </div>
     );
 }
+
+const presetOptions = Object.keys(presets).map(key => <option value={key}>{key}</option> )
+
 
 export { currSettings };
