@@ -8,6 +8,8 @@ let chorus = new Tone.Chorus(0,0,0);
 let vibrato = new Tone.Vibrato(0,0);
 let filter = new Tone.Filter(0, 'lowpass');
 let compressor = new Tone.Compressor(-30, 2);
+let reverb = new Tone.Reverb(0);
+
 
 synth.set({
     oscillator: {
@@ -15,12 +17,14 @@ synth.set({
     }
 })
 
-synth.chain(chorus, vibrato, filter, compressor.toDestination()); 
+synth.chain(chorus, vibrato, filter, distortion, compressor, reverb.toDestination()); 
 
 function updateSynth(){
+    console.log(chorus);
 
     distortion.distortion = currSettings.Distortion * .75;
 
+// remove chorus frequency knob? doesn't seem to affect sound at all
     chorus.set({
         feedback: currSettings.chorusFeedback * .9,
         frequency: currSettings.chorusFreq,
@@ -49,6 +53,20 @@ function updateSynth(){
             type: currSettings.waveType
         }
     })
+
+    if (currSettings.reverbDecay < 0.001){
+        reverb.set({
+            decay: 0.001,
+            wet: currSettings.reverbDryWet
+        })
+    }
+    else{
+        reverb.set({
+            decay: currSettings.reverbDecay,
+            wet: currSettings.reverbDryWet
+        })
+    }
+    console.log(filter);
 }
 
 

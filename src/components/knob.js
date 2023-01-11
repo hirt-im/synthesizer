@@ -29,6 +29,7 @@ function Knob(props){
         rotate();
         setPrevRot(currRotation);
     }, [currSettings[props.effectName]])
+
     
     function rotate(){
         if (currRotation < -135){
@@ -45,7 +46,7 @@ function Knob(props){
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
         calculateValue();
         currSettings[props.effectName] = currValue;
-        updateSynth();
+        // updateSynth();
     }
 
     function calculateValue(){

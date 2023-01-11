@@ -139,4 +139,5 @@
 .selection-image{
   height: 8vw;
   width: 8vw;
+  filter: invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%);
 }
