@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Synth />
+        <Keyboard />
       </header>
     </div>
   );

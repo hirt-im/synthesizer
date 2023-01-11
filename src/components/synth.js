@@ -6,6 +6,7 @@ import FilterTypeSelector from './filtertypeSelector'
 import { updateSynth } from "../audio/audio";
 import { octave } from '../index';
 import { updateKeyToNote } from "../audio/keyToNote";
+import Keyboard from "./keyboard";
 
 
 
@@ -82,7 +83,6 @@ export default function Synth(){
                     <option value="ringing">ringing</option>
                     <option value="vibing">vibing</option>
                     <option value="robot emoji">robot emoji</option>
-
                 </select>
             </div>
         </div>

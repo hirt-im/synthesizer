@@ -99,4 +99,4 @@ export default function generateOsc(freq){
 
 
 
-export { audioCtx, updateSynth , synth, filter };
+export { audioCtx, updateSynth, synth, filter };
