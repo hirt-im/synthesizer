@@ -51,7 +51,8 @@ function updateSynth(){
         },
         oscillator: {
             type: currSettings.waveType
-        }
+        },
+        portamento: currSettings.portamento
     })
 
     if (currSettings.reverbDecay < 0.001){
@@ -66,7 +67,7 @@ function updateSynth(){
             wet: currSettings.reverbDryWet
         })
     }
-    console.log(filter);
+    console.log(synth);
 }
 
 

@@ -2,8 +2,9 @@ let presets;
 
 function establishPresets(){
     presets = {
-        "soothing": {
-            name: 'soothing',
+
+        "soothing pluck": {
+            name: 'soothing pluck',
             chorusFreq: 10,
             chorusDelay: 0,
             chorusFeedback: 0,
@@ -13,40 +14,19 @@ function establishPresets(){
             pingpongFeedback: 0,
             vibratoDepth: 0,
             vibratoFreq: 0,
-            filterCutoff: 1220,
+            filterCutoff: 6740,
             filterType: 'lowpass',
             waveType: 'sine',
             octave: 4,
-            envAttack: 1.29,
+            envAttack: 0,
             envDecay: 0.3,
             envSustain: 0.3,
-            envRelease: 0.3,
-            reverbDecay: 1.76,
-            reverbDryWet: 0.19
+            envRelease: 1.09,
+            reverbDecay: 1.06,
+            reverbDryWet: 0.49,
+            portamento: 0
         },
     
-        "dreary": {
-            name: 'dreary',
-            chorusFreq: 20,
-            chorusDelay: 0,
-            chorusFeedback: 0,
-            Velocity: .1,
-            Distortion: 0,
-            pingpongDelay: 0,
-            pingpongFeedback: 0,
-            vibratoDepth: 0,
-            vibratoFreq: 0,
-            filterCutoff: 330,
-            filterType: 'highpass',
-            waveType: 'triangle',
-            octave: 4,
-            envAttack: 0.3,
-            envDecay: 0.2,
-            envSustain: 0.3,
-            envRelease: 0.3,
-            reverbDecay: 0.5,
-            reverbDryWet: 0.5
-        },
         "ringing": {
             name: 'ringing',
             chorusFreq: 30,
@@ -67,8 +47,10 @@ function establishPresets(){
             envSustain: 0.22,
             envRelease: 0.16,
             reverbDecay: 0.5,
-            reverbDryWet: 0.33
+            reverbDryWet: 0.33,
+            portamento: 0
         },
+
         "vibing": {
             name: 'vibing',
             chorusFreq: 0,
@@ -89,8 +71,10 @@ function establishPresets(){
             envSustain: 0.56,
             envRelease: 0.76,
             reverbDecay: 0.5,
-            reverbDryWet: 0.33
+            reverbDryWet: 0.33,
+            portamento: 0
         },
+
         "epic": {
             name: 'epic',
             chorusFreq: 0,
@@ -106,15 +90,41 @@ function establishPresets(){
             filterType: 'lowpass',
             waveType: 'sawtooth',
             octave: 3,
-            envAttack: 0,
+            envAttack: 1.3,
             envDecay: 0.85,
             envSustain: 0.58,
             envRelease: 1.35,
             reverbDecay: 1.11,
-            reverbDryWet: 0.53
+            reverbDryWet: 0.53,
+            portamento: 0
         },
-        "robot emoji": {
-            name: 'robot emoji',
+
+        "gameboy": {
+            name: 'gameboy',
+            chorusFreq: 0,
+            chorusDelay: 0,
+            chorusFeedback: 0,
+            Velocity: .12,
+            Distortion: 0,
+            pingpongDelay: 0,
+            pingpongFeedback: 0,
+            vibratoDepth: .04,
+            vibratoFreq: 11.11,
+            filterCutoff: 1222,
+            filterType: 'highpass',
+            waveType: 'square',
+            octave: 4,
+            envAttack: 0,
+            envDecay: 0.62,
+            envSustain: 0.77,
+            envRelease: 0,
+            reverbDecay: 0.5,
+            reverbDryWet: 0.33,
+            portamento: 0,
+        },
+
+        "USE WITH CAUTION": {
+            name: 'USE WITH CAUTION',
             chorusFreq: 0,
             chorusDelay: 15.19,
             chorusFeedback: .44,
@@ -133,7 +143,8 @@ function establishPresets(){
             envSustain: 0.34,
             envRelease: 0.35,
             reverbDecay: 0,
-            reverbDryWet: 0
+            reverbDryWet: 0,
+            portamento: 0
         }
     }
 }

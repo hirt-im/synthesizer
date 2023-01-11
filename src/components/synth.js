@@ -10,7 +10,7 @@ import Keyboard from "./keyboard";
 
 
 
-let currSettings = presets['soothing'];
+let currSettings = presets['soothing pluck'];
 
 
 export default function Synth(){
@@ -70,11 +70,9 @@ export default function Synth(){
             <div className='knobs'>
                 <Knob rotation="-120" value={settings.Velocity} min="0" max="1" id="2" label="Velocity" effectName="Velocity"/>
                 <Knob rotation="-120" value={settings.Distortion} min="0" max="1" id="3" label="Distortion" effectName="Distortion"/>
+                <Knob rotation="-120" value={settings.portamento} min="0" max="1" id="20" label="Portamento" effectName="portamento"/>
             </div>
 
-            {/* have preset selector, where upon change, it calls setSettings to new settings 
-                store settings in separate file where they are objects with values for each effect
-            */}
             <div>
                 <div className='preset-label'>Preset</div>
                 <select value={settings.name} onChange={handleChange}>
@@ -85,7 +83,7 @@ export default function Synth(){
     );
 }
 
-const presetOptions = Object.keys(presets).map(key => <option value={key}>{key}</option> )
+const presetOptions = Object.keys(presets).map( key => <option value={key}>{key}</option> )
 
 
 export { currSettings };
