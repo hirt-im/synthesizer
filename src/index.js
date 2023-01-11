@@ -23,34 +23,36 @@ updateKeyToNote();
 
 let currNotes = {};
 document.addEventListener('keydown', (e) => {
-
-  if (e.key === '/'){
+  
+  let key = e.key.toLowerCase();
+  if (key === '/'){
     octave.octave++;
     updateKeyToNote();
     return;
   }
 
-  if (e.key === '.'){
+  if (key === '.'){
     octave.octave--;
     updateKeyToNote();
     return;
   }
 
-  if (keyToNote[e.key]){
-    if (!currNotes[e.key]){
-      synth.triggerAttack(keyToNote[e.key], Tone.now(), currSettings.Velocity);
+  if (keyToNote[key]){
+    if (!currNotes[key]){
+      synth.triggerAttack(keyToNote[key], Tone.now(), currSettings.Velocity);
       }
-    currNotes[e.key] = true;
+    currNotes[key] = true;
     }
   return;
 })
 
 
 document.addEventListener('keyup', (e) => {
-  if(keyToNote[e.key]){
-    synth.triggerRelease(keyToNote[e.key]);
+  let key = e.key.toLowerCase();
+  if(keyToNote[key]){
+    synth.triggerRelease(keyToNote[key]);
   }
-  delete currNotes[e.key];
+  delete currNotes[key];
 })
 
 
