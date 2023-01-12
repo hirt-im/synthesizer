@@ -228,3 +228,22 @@ option, select{
   font-weight: bold;
   background: var(--menu-bg-color)
 }
+
+.settings{
+  display: flex;
+  flex-direction: column;
+}
+
+.selectors-wrapper{
+  display: flex;
+  gap: 2vw;
+  margin-top: 1vh;
+}
+
+.settings-elements-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  justify-content: center;
+  align-items: center;
+}

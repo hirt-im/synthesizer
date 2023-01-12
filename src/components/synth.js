@@ -80,7 +80,7 @@ export default function Synth(){
                 SAMPLE TEXT
             </KnobGroup>
 
-            <KnobGroup label="Settings" class='settings'>
+            {/* <KnobGroup label="Settings" class='settings'>
                 <div className="preset">
                     <div className='knob-label'>Preset</div>
                     <select value={settings.name} onChange={handleChange}>
@@ -93,6 +93,28 @@ export default function Synth(){
                         <option>test</option>
                     </select>
                 </div>
+                <div>test</div>
+            </KnobGroup> */}
+
+            <KnobGroup label="Settings" class='settings'>
+                <div className='settings-elements-wrapper'>
+                    <div className="selectors-wrapper">
+                        <div className="preset">
+                            <div className='knob-label'>Preset</div>
+                            <select value={settings.name} onChange={handleChange}>
+                                {presetOptions}
+                            </select>
+                        </div>
+                        <div>
+                            <div className='knob-label'>Theme</div>
+                            <select>
+                                <option>test</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className='controls'>Show controls</div>
+                </div>
+               
             </KnobGroup>
 
 
