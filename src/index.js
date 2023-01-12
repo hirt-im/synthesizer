@@ -23,7 +23,6 @@ updateKeyToNote();
 
 let currNotes = {};
 document.addEventListener('keydown', (e) => {
-  
   let key = e.key.toLowerCase();
   if (key === '/'){
     octave.octave++;

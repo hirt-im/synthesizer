@@ -29,7 +29,16 @@ function updateKeyToNote(){
       'y': 'A' + (octave.octave + 1),
       '7': 'A#'+ (octave.octave + 1),
       'u': 'B' + (octave.octave + 1),
-      'i': 'C' + (octave.octave + 2)
+      'i': 'C' + (octave.octave + 2),
+      '9': 'C#'+ (octave.octave + 2),
+      'o': 'D' + (octave.octave + 2),
+      '0': 'D#'+ (octave.octave + 2),
+      'p': 'E' + (octave.octave + 2),
+      '[': 'F' + (octave.octave + 2),
+      '=': 'F#'+ (octave.octave + 2),
+      ']': 'G' + (octave.octave + 2),
+      'Backspace': 'G#' + (octave.octave + 2),
+      '\\': 'A' + (octave.octave + 2)
     }
   }
 
