@@ -2,7 +2,10 @@
 
 
 :root{
-  background-color: #282c34;
+  --bg-color: #282c34;
+  --label-color: rgb(255, 196, 0);
+  --menu-bg-color: rgb(253, 235, 175);
+  background-color: var(--bg-color);
 }
 .App {
   text-align: center;
@@ -215,5 +218,11 @@
 }
 
 .knob-group-label{
-  color: rgb(255, 196, 0);
+  color: var(--label-color);
+}
+
+option, select{
+  font-family: 'Roboto Mono', sans-serif;
+  font-weight: bold;
+  background: var(--menu-bg-color)
 }
