@@ -114,7 +114,6 @@ export default function Synth(){
                     </div>
                     <div className='controls'>Show controls</div>
                 </div>
-               
             </KnobGroup>
 
 

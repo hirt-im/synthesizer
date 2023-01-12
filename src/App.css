@@ -4,11 +4,14 @@
 :root{
   --bg-color: #282c34;
   --label-color: rgb(255, 196, 0);
+  /* --label-color: black; */
   --menu-bg-color: rgb(253, 235, 175);
-  /* --synth-bg-color: rgb(111, 221, 255); */
-  --synth-bg-color: var(--bg-color);
-  --border-color: white;
-  /* --label-text-color:  */
+  --synth-bg-color: rgb(76, 89, 94);
+  /* --synth-bg-color: var(--bg-color); */
+  --border-color: black;
+  --label-text-color: white;
+  --knob-value-color: white;
+  --knob-group-bg-color: rgb(56, 65, 68);
   background-color: var(--bg-color);
 }
 
@@ -33,7 +36,7 @@
 
 .synth-wrapper{
   background-color: var(--synth-bg-color);
-  padding: 1.7vw;
+  padding: 1.3vw;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -131,6 +134,7 @@
   font-size: 1em;
   align-self: center;
   text-align: center;
+  color: var(--knob-value-color);
 }
 
 
@@ -163,6 +167,8 @@
   padding-right: 1.3vw;
   border: 1px solid var(--border-color);
   border-radius: 15px;
+  color: var(--label-text-color);
+  background-color: var(--knob-group-bg-color);
 }
 
 .oscillator{
