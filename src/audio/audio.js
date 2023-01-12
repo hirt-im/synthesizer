@@ -9,6 +9,7 @@ let vibrato = new Tone.Vibrato(0,0);
 let filter = new Tone.Filter(0, 'lowpass');
 let compressor = new Tone.Compressor(-30, 2);
 let reverb = new Tone.Reverb(0);
+let delay = new Tone.FeedbackDelay(0.01,0);
 
 
 synth.set({
@@ -17,7 +18,7 @@ synth.set({
     }
 })
 
-synth.chain(chorus, vibrato, filter, distortion, compressor, reverb.toDestination()); 
+synth.chain(chorus, vibrato, filter, distortion, compressor, delay, reverb.toDestination()); 
 
 function updateSynth(){
     console.log(chorus);
@@ -55,6 +56,12 @@ function updateSynth(){
         portamento: currSettings.portamento
     })
 
+    delay.set({
+        delayTime: currSettings.delayTime,
+        feedback: currSettings.delayFeedback * .95,
+        // wet: currSettings.delayDryWet
+    })
+    console.log(delay);
     if (currSettings.reverbDecay < 0.001){
         reverb.set({
             decay: 0.001,

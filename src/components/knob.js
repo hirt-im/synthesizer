@@ -100,7 +100,7 @@ function Knob(props){
 function KnobGroup(props){
     return(
         <div className='knob-group-wrapper'>
-            <div>{props.label}</div>
+            <div className='knob-group-label'>{props.label}</div>
             <div className='knob-group'>
                 {props.children}
             </div>

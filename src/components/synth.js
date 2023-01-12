@@ -10,7 +10,7 @@ import Keyboard from "./keyboard";
 
 
 
-let currSettings = presets['soothing pluck'];
+let currSettings = presets['Soothing Pluck'];
 
 
 export default function Synth(){
@@ -54,19 +54,22 @@ export default function Synth(){
                 <Knob rotation="-120" value={settings.chorusFeedback} min="0" max="1" id="1" label="Feedback" effectName="chorusFeedback"/>
             </KnobGroup>
 
-            {/* <KnobGroup label="Ping Pong Delay">
-                <Knob rotation="-120" value={settings.pingpongDelay} min="0" max="1" id="4" label="Delay" effectName="pingpongDelay"/>
-                <Knob rotation="-120" value={settings.pingpongFeedback} min="0" max="1" id="5" label="Feedback" effectName="pingpongFeedback"/>
-            </KnobGroup> */}
-            
-            <KnobGroup label="Vibrato">
-                <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
-                <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
-            </KnobGroup>
             <KnobGroup label="Reverb">
                 <Knob rotation="-120" value={settings.reverbDecay} min="0" max="2" id="16" label="Decay" effectName="reverbDecay"/>
                 <Knob rotation="-120" value={settings.reverbDryWet} min="0" max="1" id="17" label="Dry/Wet" effectName="reverbDryWet"/>
             </KnobGroup>
+
+            <KnobGroup label="Vibrato">
+                <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
+                <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
+            </KnobGroup>
+
+            <KnobGroup label="Delay">
+                <Knob rotation="-120" value={settings.delayTime} min="0" max="1" id="22" label="Time" effectName="delayTime"/>
+                <Knob rotation="-120" value={settings.maxDelay} min="0" max="1" id="23" label="Feedback" effectName="delayFeedback"/>
+                {/* <Knob rotation="-120" value={settings.delayDryWet} min="0" max="1" id="24" label="Dry/Wet" effectName="delayDryWet"/> */}
+            </KnobGroup>
+
             <div className='knobs'>
                 <Knob rotation="-120" value={settings.Velocity} min="0" max="1" id="2" label="Velocity" effectName="Velocity"/>
                 <Knob rotation="-120" value={settings.Distortion} min="0" max="1" id="3" label="Distortion" effectName="Distortion"/>

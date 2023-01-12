@@ -3,8 +3,8 @@ let presets;
 function establishPresets(){
     presets = {
 
-        "soothing pluck": {
-            name: 'soothing pluck',
+        "Soothing Pluck": {
+            name: 'Soothing Pluck',
             chorusFreq: 10,
             chorusDelay: 0,
             chorusFeedback: 0,
@@ -21,10 +21,13 @@ function establishPresets(){
             envAttack: 0,
             envDecay: 0.3,
             envSustain: 0.3,
-            envRelease: 1.09,
+            envRelease: .02,
             reverbDecay: 1.06,
             reverbDryWet: 0.49,
-            portamento: 0
+            portamento: 0,
+            delayTime: 0,
+            delayFeedback: 0,
+            // delayDryWet: 0
         },
     
         "ringing": {
@@ -38,8 +41,8 @@ function establishPresets(){
             pingpongFeedback: 0,
             vibratoDepth: 0,
             vibratoFreq: 0,
-            filterCutoff: 300,
-            filterType: 'highpass',
+            filterCutoff: 10000,
+            filterType: 'lowpass',
             waveType: 'triangle',
             octave: 5,
             envAttack: 0,
@@ -48,7 +51,9 @@ function establishPresets(){
             envRelease: 0.16,
             reverbDecay: 0.5,
             reverbDryWet: 0.33,
-            portamento: 0
+            portamento: 0,
+            delayTime: 0,
+            delayFeedback: 0
         },
 
         "vibing": {
@@ -72,14 +77,16 @@ function establishPresets(){
             envRelease: 0.76,
             reverbDecay: 0.5,
             reverbDryWet: 0.33,
-            portamento: 0
+            portamento: 0,
+            delayTime: 0,
+            delayFeedback: 0
         },
 
         "epic": {
             name: 'epic',
             chorusFreq: 0,
             chorusDelay: 0,
-            chorusFeedback: 1,
+            chorusFeedback: .77,
             Velocity: .16,
             Distortion: 0,
             pingpongDelay: 0,
@@ -96,7 +103,9 @@ function establishPresets(){
             envRelease: 1.35,
             reverbDecay: 1.11,
             reverbDryWet: 0.53,
-            portamento: 0
+            portamento: 0,
+            delayTime: 0,
+            delayFeedback: 0
         },
 
         "gameboy": {
@@ -121,6 +130,8 @@ function establishPresets(){
             reverbDecay: 0.5,
             reverbDryWet: 0.33,
             portamento: 0,
+            delayTime: 0,
+            delayFeedback: 0
         },
 
         "haunting": {
@@ -145,6 +156,8 @@ function establishPresets(){
             reverbDecay: 1.11,
             reverbDryWet: 0.53,
             portamento: 0,
+            delayTime: 0,
+            delayFeedback: 0
         }
     }
 }
