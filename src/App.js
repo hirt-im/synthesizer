@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Synth />
-        <Keyboard />
+        {/* <Keyboard /> */}
       </header>
     </div>
   );

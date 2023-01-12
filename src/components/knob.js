@@ -84,7 +84,7 @@ function Knob(props){
 
 
     return(
-        <div className='knob-wrapper-wrapper'>
+        <div className={'knob-wrapper-wrapper'}>
             <div className='knob-label'>{props.label}</div>
             <div className='knob-wrapper' id={props.id} onMouseDown={rotateKnob}>
                 <div className='knob'>
@@ -99,7 +99,7 @@ function Knob(props){
 
 function KnobGroup(props){
     return(
-        <div className='knob-group-wrapper'>
+        <div className={'knob-group-wrapper ' + props.class}>
             <div className='knob-group-label'>{props.label}</div>
             <div className='knob-group'>
                 {props.children}

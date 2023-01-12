@@ -6,7 +6,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  /* height: 40vmin; */
   pointer-events: none;
 }
 
@@ -18,7 +18,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,7 +138,7 @@
 }
 
 .knob-label, .type-label{
-  font-size: .8em;
+  font-size: .7em;
 }
 
 .knob-group{
@@ -155,16 +155,56 @@
   border-radius: 15px;
 }
 
+
 .synth-wrapper{
   padding: 50px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: .1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 2fr; */
+
   flex-wrap: wrap;
   gap: 1vw;
-  padding-bottom: 0;
   border: 1px solid white;
   border-radius: 20px;
+}
+
+.oscillator{
+  grid-column: 1/2;
+}
+
+.filter{
+  grid-column: 2/3;
+}
+
+.envelope{
+  grid-column: 3/5;
+}
+
+.chorus{
+  grid-column: 1/2;
+}
+
+.reverb{
+  grid-column: 2/3;
+}
+
+.vibrato-delay{
+  grid-column: 3/4;
+}
+
+.delay{
+  grid-column: 4/5;
+}
+
+.note{grid-column: 1/2;}
+
+.visualizer{
+  grid-column: 2/4;
+}
+
+.settings{
+  grid-column: 4/5;
 }
 
 .vibrato-delay{
