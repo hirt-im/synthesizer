@@ -17,4 +17,7 @@ function App() {
   );
 }
 
+//TODO:
+// get rid of extra space at bottom of every knob group, or center all elements 
+
 export default App;

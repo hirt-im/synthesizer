@@ -5,8 +5,13 @@
   --bg-color: #282c34;
   --label-color: rgb(255, 196, 0);
   --menu-bg-color: rgb(253, 235, 175);
+  /* --synth-bg-color: rgb(111, 221, 255); */
+  --synth-bg-color: var(--bg-color);
+  --border-color: white;
+  /* --label-text-color:  */
   background-color: var(--bg-color);
 }
+
 .App {
   text-align: center;
   font-family: 'Roboto Mono', sans-serif;
@@ -26,9 +31,17 @@
   transform: translate(12.5%, 0);
 }
 
-.App-link {
-  color: #61dafb;
+.synth-wrapper{
+  background-color: var(--synth-bg-color);
+  padding: 1.7vw;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1vw;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
 }
+
 
 .key{
   color: white;
@@ -87,7 +100,7 @@
 }
 
 .knob {
-  border: 2px solid white;
+  border: 2px solid var(--border-color);
   border-radius: 50%;
   width: 5vw;
   height: 5vw;
@@ -97,7 +110,7 @@
 }
 
 .knob-handle{
-  border: 1px solid white;
+  border: 1px solid var(--border-color);
   width: .001em;
   height: 48%;
   position: relative;
@@ -148,19 +161,8 @@
 .knob-group-wrapper{
   padding-left: 1.3vw;
   padding-right: 1.3vw;
-  border: 1px solid white;
+  border: 1px solid var(--border-color);
   border-radius: 15px;
-}
-
-
-.synth-wrapper{
-  padding: 1.7vw;
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 1vw;
-  border: 1px solid white;
-  border-radius: 20px;
 }
 
 .oscillator{
