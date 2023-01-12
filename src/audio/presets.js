@@ -41,7 +41,7 @@ function establishPresets(){
             pingpongFeedback: 0,
             vibratoDepth: 0,
             vibratoFreq: 0,
-            filterCutoff: 10000,
+            filterCutoff: 9000,
             filterType: 'lowpass',
             waveType: 'triangle',
             octave: 5,

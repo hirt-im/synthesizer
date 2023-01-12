@@ -38,7 +38,7 @@ export default function Synth(){
 
             <KnobGroup label="Filter" class='filter'>
                 <FilterTypeSelector filter={settings.filterType} />
-                <Knob rotation="-120" value={settings.filterCutoff} min="0" max="10000" id="11" label="Cutoff" effectName="filterCutoff"/>
+                <Knob rotation="-120" value={settings.filterCutoff} min="0" max="9000" id="11" label="Cutoff" effectName="filterCutoff"/>
             </KnobGroup>
 
             <KnobGroup label="Envelope" class='envelope'>
@@ -77,7 +77,7 @@ export default function Synth(){
             </KnobGroup>
 
             <KnobGroup label="Wave Visualizer" class='visualizer'>
-                here
+                SAMPLE TEXT
             </KnobGroup>
 
             <KnobGroup label="Settings" class='settings'>
