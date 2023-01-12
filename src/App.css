@@ -143,6 +143,8 @@
 
 .knob-group{
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 2vw;
 }
 
@@ -150,17 +152,24 @@
   padding-left: 1.3vw;
   padding-right: 1.3vw;
   border: 1px solid white;
-  border-radius: 10%;
+  border-radius: 15px;
 }
 
 .synth-wrapper{
   padding: 50px;
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: .1fr 1fr 2fr;
   flex-wrap: wrap;
   gap: 1vw;
   padding-bottom: 0;
   border: 1px solid white;
   border-radius: 20px;
+}
+
+.vibrato-delay{
+  display: flex;
+  gap: 1vw;
 }
 
 .selection-type{

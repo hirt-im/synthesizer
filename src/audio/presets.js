@@ -30,8 +30,8 @@ function establishPresets(){
             // delayDryWet: 0
         },
     
-        "ringing": {
-            name: 'ringing',
+        "Ringing": {
+            name: 'Ringing',
             chorusFreq: 30,
             chorusDelay: 88,
             chorusFeedback: .9,
@@ -56,8 +56,8 @@ function establishPresets(){
             delayFeedback: 0
         },
 
-        "vibing": {
-            name: 'vibing',
+        "Vibing": {
+            name: 'Vibing',
             chorusFreq: 0,
             chorusDelay: 0,
             chorusFeedback: 0,
@@ -82,8 +82,8 @@ function establishPresets(){
             delayFeedback: 0
         },
 
-        "epic": {
-            name: 'epic',
+        "Warm Waves": {
+            name: 'Warm Waves',
             chorusFreq: 0,
             chorusDelay: 0,
             chorusFeedback: .77,
@@ -108,8 +108,8 @@ function establishPresets(){
             delayFeedback: 0
         },
 
-        "gameboy": {
-            name: 'gameboy',
+        "Gameboy": {
+            name: 'Gameboy',
             chorusFreq: 0,
             chorusDelay: 0,
             chorusFeedback: 0,
@@ -134,8 +134,8 @@ function establishPresets(){
             delayFeedback: 0
         },
 
-        "haunting": {
-            name: 'haunting',
+        "Cursed": {
+            name: 'Cursed',
             chorusFreq: 0,
             chorusDelay: 4.07,
             chorusFeedback: 1,

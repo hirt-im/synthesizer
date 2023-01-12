@@ -49,7 +49,7 @@ export default function Synth(){
             </KnobGroup>
 
             <KnobGroup label="Chorus">
-                <Knob rotation="-120" value={settings.chorusFreq} min="0" max="10000" id="10" label="Frequency" effectName="chorusFreq"/>
+                {/* <Knob rotation="-120" value={settings.chorusFreq} min="0" max="10000" id="10" label="Frequency" effectName="chorusFreq"/> */}
                 <Knob rotation="-120" value={settings.chorusDelay} min="0" max="100" id="0" label="Delay" effectName="chorusDelay"/>
                 <Knob rotation="-120" value={settings.chorusFeedback} min="0" max="1" id="1" label="Feedback" effectName="chorusFeedback"/>
             </KnobGroup>
@@ -59,20 +59,25 @@ export default function Synth(){
                 <Knob rotation="-120" value={settings.reverbDryWet} min="0" max="1" id="17" label="Dry/Wet" effectName="reverbDryWet"/>
             </KnobGroup>
 
-            <KnobGroup label="Vibrato">
-                <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
-                <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
-            </KnobGroup>
+            <div className="vibrato-delay">
+                <KnobGroup label="Vibrato">
+                    <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
+                    <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
+                </KnobGroup>
 
-            <KnobGroup label="Delay">
-                <Knob rotation="-120" value={settings.delayTime} min="0" max="1" id="22" label="Time" effectName="delayTime"/>
-                <Knob rotation="-120" value={settings.maxDelay} min="0" max="1" id="23" label="Feedback" effectName="delayFeedback"/>
-                {/* <Knob rotation="-120" value={settings.delayDryWet} min="0" max="1" id="24" label="Dry/Wet" effectName="delayDryWet"/> */}
-            </KnobGroup>
-
+                <KnobGroup label="Delay">
+                    <Knob rotation="-120" value={settings.delayTime} min="0" max="1" id="22" label="Time" effectName="delayTime"/>
+                    <Knob rotation="-120" value={settings.maxDelay} min="0" max="1" id="23" label="Feedback" effectName="delayFeedback"/>
+                    {/* <Knob rotation="-120" value={settings.delayDryWet} min="0" max="1" id="24" label="Dry/Wet" effectName="delayDryWet"/> */}
+                </KnobGroup>
+            </div>
+           
             <div className='knobs'>
                 <Knob rotation="-120" value={settings.Velocity} min="0" max="1" id="2" label="Velocity" effectName="Velocity"/>
                 <Knob rotation="-120" value={settings.Distortion} min="0" max="1" id="3" label="Distortion" effectName="Distortion"/>
+            </div>
+
+            <div>
                 <Knob rotation="-120" value={settings.portamento} min="0" max="1" id="20" label="Portamento" effectName="portamento"/>
             </div>
 
@@ -82,6 +87,8 @@ export default function Synth(){
                     {presetOptions}
                 </select>
             </div>
+
+
         </div>
     );
 }
