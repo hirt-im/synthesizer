@@ -6,14 +6,13 @@ import { synth, waveform } from './audio/audio';
 import * as Tone from 'tone';
 import { keyToNote, updateKeyToNote } from './audio/keyToNote';
 import { currSettings } from './components/synth';
-import { logWaveform } from './components/waveform';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <App />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 let octave = {
@@ -25,7 +24,7 @@ updateKeyToNote();
 let currNotes = {};
 document.addEventListener('keydown', (e) => {
 
-  logWaveform();
+  // console.log(waveform.getValue());
   
   let key = e.key.toLowerCase();
   if (key === '/'){

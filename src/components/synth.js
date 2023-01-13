@@ -7,6 +7,7 @@ import { updateSynth } from "../audio/audio";
 import { octave } from '../index';
 import { updateKeyToNote } from "../audio/keyToNote";
 import Keyboard from "./keyboard";
+import { Waveform } from "./waveform";
 
 
 
@@ -76,9 +77,12 @@ export default function Synth(){
                 {/* <Knob rotation="-120" value={settings.Distortion} min="0" max="1" id="3" label="Distortion" effectName="Distortion"/> */}
             </KnobGroup>
 
-            <KnobGroup label="Wave Visualizer" class='visualizer'>
+            {/* <KnobGroup label="Wave Visualizer" class='visualizer'>
                 SAMPLE TEXT
-            </KnobGroup>
+            </KnobGroup> */}
+            <div className="visualizer" id='vis'>
+                <Waveform />
+            </div>
 
             {/* <KnobGroup label="Settings" class='settings'>
                 <div className="preset">
@@ -115,6 +119,7 @@ export default function Synth(){
                     <div className='controls'>Show controls</div>
                 </div>
             </KnobGroup>
+            {/* <Waveform /> */}
 
 
         </div>

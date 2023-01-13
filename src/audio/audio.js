@@ -22,7 +22,6 @@ synth.set({
 
 
 function updateSynth(){
-    console.log(chorus);
 
     distortion.distortion = currSettings.Distortion * .75;
 
@@ -62,7 +61,7 @@ function updateSynth(){
         feedback: currSettings.delayFeedback * .95,
         // wet: currSettings.delayDryWet
     })
-    console.log(delay);
+    
     if (currSettings.reverbDecay < 0.001){
         reverb.set({
             decay: 0.001,
