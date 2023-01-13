@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { synth } from './audio/audio';
+import { synth, waveform } from './audio/audio';
 import * as Tone from 'tone';
 import { keyToNote, updateKeyToNote } from './audio/keyToNote';
 import { currSettings } from './components/synth';
+import { logWaveform } from './components/waveform';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +24,9 @@ updateKeyToNote();
 
 let currNotes = {};
 document.addEventListener('keydown', (e) => {
+
+  logWaveform();
+  
   let key = e.key.toLowerCase();
   if (key === '/'){
     octave.octave++;

@@ -11,7 +11,7 @@
   /* --synth-bg-color: var(--bg-color); */
   --border-color: white;
   --knob-color: white;
-  --label-text-color: #c4b5ad;
+  --label-text-color: #deb9e0;
   --knob-value-color: #bbaea6;
   background-color: var(--bg-color);
 }
@@ -122,20 +122,26 @@
   align-self: center;
 }
 
+.knob-handle:active{
+  border-color: green;
+}
+
 .knob-wrapper{
   transform: translate(-50%, -50%);
   transform: rotate(-135deg);
 
+
+
 }
 
 .knob-value{
+  height: 2vh;
   transform: translate(-50%, -50%);
-  position: relative;
   width: 1em;
-  font-size: 1em;
+  font-size: .75em;
   align-self: center;
-  text-align: center;
   color: var(--knob-value-color);
+  margin-right: .5vw;
 }
 
 
@@ -164,6 +170,7 @@
 }
 
 .knob-group-wrapper{
+  /* height: 90%; */
   padding-left: 1.3vw;
   padding-right: 1.3vw;
   border: 1.5px solid var(--border-color);

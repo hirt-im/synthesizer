@@ -10,7 +10,9 @@ let filter = new Tone.Filter(0, 'lowpass');
 let compressor = new Tone.Compressor(-30, 2);
 let reverb = new Tone.Reverb(0);
 let delay = new Tone.FeedbackDelay(0.01,0);
+let waveform = new Tone.Waveform();
 synth.chain(chorus, vibrato, filter, distortion, compressor, delay, reverb.toDestination()); 
+Tone.Destination.connect(waveform);
 
 synth.set({
     oscillator: {
@@ -73,7 +75,6 @@ function updateSynth(){
             wet: currSettings.reverbDryWet
         })
     }
-    console.log(synth);
 }
 
 
@@ -106,4 +107,4 @@ export default function generateOsc(freq){
 
 
 
-export { audioCtx, updateSynth, synth, filter };
+export { audioCtx, updateSynth, synth, filter, waveform };

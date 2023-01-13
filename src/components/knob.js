@@ -77,6 +77,7 @@ function Knob(props){
     }
 
     function rotateKnob(e){
+        let handle = document.getElementsByClassName()
         initialY = e.clientY;
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseup', handleMouseUp);
