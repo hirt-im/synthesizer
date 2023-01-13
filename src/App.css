@@ -211,6 +211,8 @@
 
 .visualizer{
   grid-column: 2/4;
+  border: 1.5px solid var(--border-color);
+  border-radius: 15px;
 }
 
 .settings{

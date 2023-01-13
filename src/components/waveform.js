@@ -30,12 +30,12 @@ function Waveform(){
     let ampFactor = 10;
 
     let setup = (p5, parentRef) => {
-		p5.createCanvas(width, height).parent(parentRef);
+		p5.createCanvas(width - 15, height - 25).parent(parentRef);
 	};
 
     let draw = (p5) => {
         // console.log(waveform.getValue())
-		p5.background(0);
+		p5.background(p5.color('#616368'));
 		p5.stroke('white');
 		let buffer = waveform.getValue();
 
