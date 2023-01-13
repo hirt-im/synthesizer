@@ -61,7 +61,7 @@ function updateSynth(){
         feedback: currSettings.delayFeedback * .95,
         // wet: currSettings.delayDryWet
     })
-    
+
     if (currSettings.reverbDecay < 0.001){
         reverb.set({
             decay: 0.001,
