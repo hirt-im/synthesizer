@@ -25,8 +25,11 @@ function Waveform(){
     let start, end, buffer;
 
     // let colors = ['white', 'blue', 'red', 'orange', 'yellow', 'black'];
+    // let colors = ['white', 'gray', 'black'];
+    
 
     let draw = (p5) => {
+
         // console.log(waveform.getValue())
 		p5.background(p5.color('#616368'));
 		p5.stroke('white');
@@ -52,8 +55,15 @@ function Waveform(){
         for (let i = 0; i < end; i++){
             let x = p5.map(i, start, end, 0, width);
             let y = p5.map(buffer[i] * ampFactor, -1, 1, 0, height);
-            p5.rect(x, height, 1, -y);
-            // p5.vertex(x,y);
+
+            // testing yin yang visualization
+            p5.stroke('white');
+            p5.rect(x, height, 2, -y);
+            p5.stroke('black');
+            p5.rect(x, y, 2, -height);
+
+
+            p5.vertex(x,y);
         }
         p5.endShape();
 	};
