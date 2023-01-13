@@ -36,8 +36,13 @@ function Waveform(){
     let draw = (p5) => {
         // console.log(waveform.getValue())
 		p5.background(0);
-		p5.fill(255);
-		p5.ellipse(200,20,20,20);
+		p5.stroke('white');
+		let buffer = waveform.getValue();
+        for (let i = 0; i < buffer.length; i++){
+            let x = p5.map(i, 0, buffer.length, 0, width);
+            let y = p5.map(buffer[i], -1, 1, 0, height);
+            p5.point(x,y);
+        }
 	};
 
     return(
