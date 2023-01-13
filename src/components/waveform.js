@@ -6,18 +6,9 @@ import { useState, useEffect } from "react";
 
 function Waveform(){
 
-
-    // const [wave, setWave] = useState(waveform.getValue())
-
     let parentDiv;
     let width;
     let height;
-
- 
-    // useEffect(() => {
-    //     setWave(waveform.getValue());
-    //     console.log(wave);
-    // }, [waveform.buffer])
 
     useEffect(() => {
         parentDiv = document.getElementById('vis');
@@ -25,26 +16,44 @@ function Waveform(){
         height = parentDiv.offsetHeight;
     }, [document.getElementById('vis')])
 
-
-  
-    let ampFactor = 10;
+    let ampFactor = 8.5;
 
     let setup = (p5, parentRef) => {
 		p5.createCanvas(width - 15, height - 25).parent(parentRef);
 	};
 
+    let start, end, buffer;
+
+    // let colors = ['white', 'blue', 'red', 'orange', 'yellow', 'black'];
+
     let draw = (p5) => {
         // console.log(waveform.getValue())
 		p5.background(p5.color('#616368'));
 		p5.stroke('white');
-		let buffer = waveform.getValue();
+
+        // let color = Math.floor(Math.random() * colors.length);
+        // p5.stroke(colors[color]);
+        
+        p5.strokeWeight(2);
+		buffer = waveform.getValue();
+        
+  
+        for (let i = 1; i < buffer.length; i++){
+            if (buffer[i-1] > 0 && buffer[i] <= 0){
+                start = i;
+                break;
+            }
+        }
+
+        end = (buffer.length / 2) + start;
 
         p5.beginShape();
         p5.noFill();
-        for (let i = 0; i < buffer.length; i++){
-            let x = p5.map(i, 0, buffer.length, 0, width);
+        for (let i = 0; i < end; i++){
+            let x = p5.map(i, start, end, 0, width);
             let y = p5.map(buffer[i] * ampFactor, -1, 1, 0, height);
-            p5.vertex(x,y);
+            p5.rect(x, height, 1, -y);
+            // p5.vertex(x,y);
         }
         p5.endShape();
 	};
@@ -52,10 +61,6 @@ function Waveform(){
     return(
             <Sketch setup={setup} draw={draw} />
     );
-
-
-
-
 }
 
 export { Waveform };
