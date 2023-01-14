@@ -41,12 +41,27 @@ function Waveform(){
 		buffer = waveform.getValue();
         
   
-        for (let i = 1; i < buffer.length; i++){
-            if (buffer[i-1] > 0 && buffer[i] <= 0){
-                start = i;
-                break;
+        // for (let i = 1; i < buffer.length; i++){
+        //     if (buffer[i-1] > 0 && buffer[i] <= 0){
+        //         start = i;
+        //         break;
+        //     }
+        // }
+
+        let currMin = 0;
+        let currMinIndex = 0;
+        for (let i = 0; i < buffer.length; i++){
+            if (buffer[i] < currMin){
+                currMin = buffer[i]
+                currMinIndex = i;
             }
         }
+
+        start = currMinIndex;
+
+        // attempt to make waveform consistent and stop flickering:
+        // iterate through buffer and find max value
+        // max value is now start
 
         end = (buffer.length / 2) + start;
 
@@ -57,10 +72,10 @@ function Waveform(){
             let y = p5.map(buffer[i] * ampFactor, -1, 1, 0, height);
 
             // testing yin yang visualization
-            p5.stroke('white');
-            p5.rect(x, height, 2, -y);
-            p5.stroke('black');
-            p5.rect(x, y, 2, -height);
+            // p5.stroke('white');
+            // p5.rect(x, height, 2, -y);
+            // p5.stroke('black');
+            // p5.rect(x, y, 2, -height);
 
 
             p5.vertex(x,y);
