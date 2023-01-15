@@ -6,41 +6,42 @@ import { useState, useEffect } from "react";
 
 function Waveform(){
 
-    let parentDiv;
-    let width;
-    let height;
-
+    let parentDiv, width, height;
     useEffect(() => {
         parentDiv = document.getElementById('vis');
         width = parentDiv.offsetWidth;
         height = parentDiv.offsetHeight;
     }, [document.getElementById('vis')])
 
-    let ampFactor = 8.5;
 
     let setup = (p5, parentRef) => {
 		p5.createCanvas(width - 15, height - 25).parent(parentRef);
 	};
 
-    let start, end, buffer;
 
-    // let colors = ['white', 'blue', 'red', 'orange', 'yellow', 'black'];
+
+    let colors = ['white', 'blue', 'red', 'orange', 'yellow', 'black'];
+    let counter = 0;
     // let colors = ['white', 'gray', 'black'];
-    
 
+    
+    let start, end, buffer;
+    let ampFactor = 8.5;
     let draw = (p5) => {
 
         // console.log(waveform.getValue())
-		p5.background(p5.color('#616368'));
+		p5.background(p5.color('rgb(45, 46, 42)'));
 		p5.stroke('white');
+
+
+        
 
         // let color = Math.floor(Math.random() * colors.length);
         // p5.stroke(colors[color]);
         
+
         p5.strokeWeight(2);
-		buffer = waveform.getValue();
-        
-  
+        buffer = waveform.getValue();  
         // for (let i = 1; i < buffer.length; i++){
         //     if (buffer[i-1] > 0 && buffer[i] <= 0){
         //         start = i;
@@ -50,20 +51,16 @@ function Waveform(){
 
         let currMin = 0;
         let currMinIndex = 0;
-        for (let i = 0; i < buffer.length; i++){
+        for (let i = 0; i < buffer.length / 2; i++){
             if (buffer[i] < currMin){
-                currMin = buffer[i]
+                currMin = buffer[i];
                 currMinIndex = i;
             }
         }
 
         start = currMinIndex;
+        end = start + (buffer.length / 2);
 
-        // attempt to make waveform consistent and stop flickering:
-        // iterate through buffer and find max value
-        // max value is now start
-
-        end = (buffer.length / 2) + start;
 
         p5.beginShape();
         p5.noFill();
@@ -77,11 +74,16 @@ function Waveform(){
             // p5.stroke('black');
             // p5.rect(x, y, 2, -height);
 
-
             p5.vertex(x,y);
+            // p5.line(x, height, x, y);
         }
         p5.endShape();
+
+        counter++;
 	};
+
+    // IDEA:
+    // compare current waveform to previous waveform, if it's too different, don't draw it??? fuck me.
 
     return(
             <Sketch setup={setup} draw={draw} />

@@ -5,9 +5,12 @@
   --bg-color: #282c34;
   --label-color: rgb(255, 196, 0);
   /* --label-color: #FFFBAC; */
-  --menu-bg-color: rgb(253, 235, 175);
-  --synth-bg-color: #616368;
+  --menu-bg-color: rgb(212, 206, 186);
+  --synth-bg-color: rgb(45, 46, 42);
+
+
   --knob-group-bg-color: var(--synth-bg-color);
+  --knob-group-bg-color: rgb(45, 46, 42);
   /* --synth-bg-color: var(--bg-color); */
   --border-color: white;
   --knob-color: white;
