@@ -55,15 +55,9 @@ export default function Synth(){
                 {/* <Knob rotation="-120" value={settings.chorusFreq} min="0" max="10000" id="10" label="Frequency" effectName="chorusFreq"/> */}
             </KnobGroup>
 
-            <KnobGroup label="Reverb" class='reverb'>
-                <Knob rotation="-120" value={settings.reverbDecay} min="0" max="2" id="16" label="Decay" effectName="reverbDecay"/>
-                <Knob rotation="-120" value={settings.reverbDryWet} min="0" max="1" id="17" label="Dry/Wet" effectName="reverbDryWet"/>
-            </KnobGroup>
-
-            <KnobGroup label="Vibrato" class='vibrato'>
-                <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
-                <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
-            </KnobGroup>
+            <div className="visualizer" id='vis'>
+                <Waveform />
+            </div>
 
             <KnobGroup label="Delay" class='delay'>
                 <Knob rotation="-120" value={settings.delayTime} min="0" max="1" id="22" label="Time" effectName="delayTime"/>
@@ -77,12 +71,20 @@ export default function Synth(){
                 {/* <Knob rotation="-120" value={settings.Distortion} min="0" max="1" id="3" label="Distortion" effectName="Distortion"/> */}
             </KnobGroup>
 
+            <KnobGroup label="Reverb" class='reverb'>
+                <Knob rotation="-120" value={settings.reverbDecay} min="0" max="2" id="16" label="Decay" effectName="reverbDecay"/>
+                <Knob rotation="-120" value={settings.reverbDryWet} min="0" max="1" id="17" label="Dry/Wet" effectName="reverbDryWet"/>
+            </KnobGroup>
+
+            <KnobGroup label="Vibrato" class='vibrato'>
+                <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
+                <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
+            </KnobGroup>
+
             {/* <KnobGroup label="Wave Visualizer" class='visualizer'>
                 SAMPLE TEXT
             </KnobGroup> */}
-            <div className="visualizer" id='vis'>
-                <Waveform />
-            </div>
+
 
             {/* <KnobGroup label="Settings" class='settings'>
                 <div className="preset">

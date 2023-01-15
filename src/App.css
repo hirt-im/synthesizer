@@ -198,6 +198,19 @@
   grid-column: 1/2;
 }
 
+.visualizer{
+  grid-column: 2/4;
+  border: 1.5px solid var(--border-color);
+  border-radius: 15px;
+}
+
+
+.delay{
+  grid-column: 4/5;
+}
+
+.note{grid-column: 1/2;}
+
 .reverb{
   grid-column: 2/3;
 }
@@ -206,17 +219,6 @@
   grid-column: 3/4;
 }
 
-.delay{
-  grid-column: 4/5;
-}
-
-.note{grid-column: 1/2;}
-
-.visualizer{
-  grid-column: 2/4;
-  border: 1.5px solid var(--border-color);
-  border-radius: 15px;
-}
 
 .settings{
   grid-column: 4/5;
