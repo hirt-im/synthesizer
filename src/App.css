@@ -7,21 +7,26 @@
   /* --label-color: #FFFBAC; */
   --menu-bg-color: rgb(212, 206, 186);
   --synth-bg-color: rgb(45, 46, 42);
+  --synth-bg-color: rgb(32, 32, 30);
+
 
 
   --knob-group-bg-color: var(--synth-bg-color);
   --knob-group-bg-color: rgb(45, 46, 42);
   /* --synth-bg-color: var(--bg-color); */
-  --border-color: white;
+  --border-color: transparent;
   --knob-color: white;
   --label-text-color: #deb9e0;
   --knob-value-color: #bbaea6;
-  background-color: var(--bg-color);
+  --knob-active: var(--label-text-color);
+    background-color: var(--bg-color);
 }
 
 .App {
   text-align: center;
   font-family: 'Roboto Mono', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-header {
@@ -35,7 +40,9 @@
   gap: 4vw;
   margin-top: 2.2vh;
   margin-bottom: 4vh;
-  transform: translate(12.5%, 0);
+  align-self: center;
+  transform: translate(0, 9%);
+  width: 100%;
 }
 
 .synth-wrapper{
@@ -47,6 +54,9 @@
   gap: 1vw;
   border: 1px solid var(--border-color);
   border-radius: 20px;
+  width: 65vw;
+  height: 75vh;
+  resize: none;
 }
 
 
@@ -109,8 +119,8 @@
 .knob {
   border: 2.5px solid var(--knob-color);
   border-radius: 50%;
-  width: 5vw;
-  height: 5vw;
+  width: 4vw;
+  height: 4vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,16 +135,13 @@
   align-self: center;
 }
 
-.knob-handle:active{
-  border-color: green;
+.knob:active, .knob-handle:active{
+  border-color: var(--knob-active);
 }
 
 .knob-wrapper{
   transform: translate(-50%, -50%);
   transform: rotate(-135deg);
-
-
-
 }
 
 .knob-value{
@@ -169,7 +176,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2vw;
+  gap: 2.3vw;
 }
 
 .knob-group-wrapper{
@@ -180,6 +187,7 @@
   border-radius: 15px;
   color: var(--label-text-color);
   background-color: var(--knob-group-bg-color);
+  width: auto;
 }
 
 .oscillator{
@@ -202,6 +210,7 @@
   grid-column: 2/4;
   border: 1.5px solid var(--border-color);
   border-radius: 15px;
+  background-color: var(--knob-group-bg-color);
 }
 
 
@@ -211,13 +220,6 @@
 
 .note{grid-column: 1/2;}
 
-.reverb{
-  grid-column: 2/3;
-}
-
-.vibrato-delay{
-  grid-column: 3/4;
-}
 
 
 .settings{
@@ -235,8 +237,8 @@
 }
 
 .selection-image{
-  height: 8vw;
-  width: 8vw;
+  height: 5.5vw;
+  width: 5.5vw;
   filter: invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%);
 }
 
@@ -267,4 +269,13 @@ option, select{
   gap: 5vh;
   justify-content: center;
   align-items: center;
+}
+
+.label-knob-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  /* transform: translate(0,5%); */
 }

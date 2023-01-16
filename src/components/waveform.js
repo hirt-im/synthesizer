@@ -1,7 +1,8 @@
 import { waveform } from "../audio/audio";
 import Sketch from 'react-p5';
-// import * as p5 from 'react-p5';
+import * as p5 from 'react-p5';
 import { useState, useEffect } from "react";
+import { currTheme } from '../components/themes';
 
 
 function Waveform(){
@@ -15,40 +16,24 @@ function Waveform(){
 
 
     let setup = (p5, parentRef) => {
-		p5.createCanvas(width - 15, height - 25).parent(parentRef);
+		p5.createCanvas(width - 15, height).parent(parentRef);
 	};
 
 
 
-    let colors = ['white', 'blue', 'red', 'orange', 'yellow', 'black'];
     let counter = 0;
-    // let colors = ['white', 'gray', 'black'];
 
     
     let start, end, buffer;
     let ampFactor = 8.5;
     let draw = (p5) => {
 
-        // console.log(waveform.getValue())
-		p5.background(p5.color('rgb(45, 46, 42)'));
+		// p5.background(p5.color('rgb(45, 46, 42)'));
+        p5.background(p5.color(currTheme['--knob-group-bg-color']));
 		p5.stroke('white');
-
-
-        
-
-        // let color = Math.floor(Math.random() * colors.length);
-        // p5.stroke(colors[color]);
-        
-
         p5.strokeWeight(2);
-        buffer = waveform.getValue();  
-        // for (let i = 1; i < buffer.length; i++){
-        //     if (buffer[i-1] > 0 && buffer[i] <= 0){
-        //         start = i;
-        //         break;
-        //     }
-        // }
 
+        buffer = waveform.getValue();  
         let currMin = 0;
         let currMinIndex = 0;
         for (let i = 0; i < buffer.length / 2; i++){
@@ -60,20 +45,11 @@ function Waveform(){
 
         start = currMinIndex;
         end = start + (buffer.length / 2);
-
-
         p5.beginShape();
         p5.noFill();
         for (let i = 0; i < end; i++){
             let x = p5.map(i, start, end, 0, width);
             let y = p5.map(buffer[i] * ampFactor, -1, 1, 0, height);
-
-            // testing yin yang visualization
-            // p5.stroke('white');
-            // p5.rect(x, height, 2, -y);
-            // p5.stroke('black');
-            // p5.rect(x, y, 2, -height);
-
             p5.vertex(x,y);
             // p5.line(x, height, x, y);
         }

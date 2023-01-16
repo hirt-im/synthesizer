@@ -85,13 +85,16 @@ function Knob(props){
 
     return(
         <div className={'knob-wrapper-wrapper'}>
-            <div className='knob-label'>{props.label}</div>
-            <div className='knob-wrapper' id={props.id} onMouseDown={rotateKnob}>
-                <div className='knob'>
-                    <div className='knob-handle'></div>
+            <div className='label-knob-wrapper'>
+                <div className='knob-label'>{props.label}</div>
+                <div className='knob-wrapper' id={props.id} onMouseDown={rotateKnob}>
+                    <div className='knob'>
+                        <div className='knob-handle'></div>
+                    </div>
                 </div>
+                <h1 className='knob-value'>{value}</h1>
             </div>
-            <h1 className='knob-value'>{value}</h1>
+           
         </div>
     );
 }

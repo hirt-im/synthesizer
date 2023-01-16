@@ -8,6 +8,7 @@ import { octave } from '../index';
 import { updateKeyToNote } from "../audio/keyToNote";
 import Keyboard from "./keyboard";
 import { Waveform } from "./waveform";
+import { updateTheme } from "./themes";
 
 
 
@@ -30,8 +31,12 @@ export default function Synth(){
         updateSynth();
     }
 
+    function changeTheme(e){
+        updateTheme(e.target.value);
+    }
+
     return(
-        <div className='synth-wrapper'>
+        <div className='synth-wrapper' id='synth'>
             
             <KnobGroup label="Oscillator" class='oscillator'>
                 <WaveTypeSelector wave={settings.waveType} />  
@@ -111,10 +116,11 @@ export default function Synth(){
                                 {presetOptions}
                             </select>
                         </div>
-                        <div>
+                        <div className='themes'>
                             <div className='knob-label'>Theme</div>
-                            <select>
-                                <option>test</option>
+                            <select onChange={changeTheme}>
+                                <option>default</option>
+                                <option>theme2</option>
                             </select>
                         </div>
                     </div>
