@@ -20,6 +20,7 @@
   --knob-value-color: #bbaea6;
   --knob-active: var(--label-text-color);
     background-color: var(--bg-color);
+  --selection-image: invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%);
 }
 
 .App {
@@ -172,6 +173,10 @@
   font-size: .7em;
 }
 
+.knob-label{
+  color: var(--label-text-color);
+}
+
 .knob-group{
   display: flex;
   justify-content: center;
@@ -239,7 +244,7 @@
 .selection-image{
   height: 5.5vw;
   width: 5.5vw;
-  filter: invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%);
+  filter: var(--selection-image);
 }
 
 .knob-group-label{

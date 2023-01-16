@@ -120,7 +120,7 @@ export default function Synth(){
                             <div className='knob-label'>Theme</div>
                             <select onChange={changeTheme}>
                                 <option>default</option>
-                                <option>theme2</option>
+                                <option>blue</option>
                             </select>
                         </div>
                     </div>
