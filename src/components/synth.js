@@ -65,7 +65,6 @@ export default function Synth(){
             <KnobGroup label="Chorus" class='chorus'>
                 <Knob rotation="-120" value={settings.chorusFeedback} min="0" max="1" id="1" label="Feedback" effectName="chorusFeedback"/>
                 <Knob rotation="-120" value={settings.chorusDelay} min="0" max="100" id="0" label="Delay" effectName="chorusDelay"/>
-                {/* <Knob rotation="-120" value={settings.chorusFreq} min="0" max="10000" id="10" label="Frequency" effectName="chorusFreq"/> */}
             </KnobGroup>
 
             <div className="visualizer" id='vis'>
@@ -75,13 +74,11 @@ export default function Synth(){
             <KnobGroup label="Delay" class='delay'>
                 <Knob rotation="-120" value={settings.delayTime} min="0" max="1" id="22" label="Time" effectName="delayTime"/>
                 <Knob rotation="-120" value={settings.maxDelay} min="0" max="1" id="23" label="Feedback" effectName="delayFeedback"/>
-                {/* <Knob rotation="-120" value={settings.delayDryWet} min="0" max="1" id="24" label="Dry/Wet" effectName="delayDryWet"/> */}
             </KnobGroup>
            
             <KnobGroup label="Note" class='note'>
                 <Knob rotation="-120" value={settings.Velocity} min="0" max="1" id="2" label="Velocity" effectName="Velocity"/>
                 <Knob rotation="-120" value={settings.portamento} min="0" max="1" id="20" label="Glide" effectName="portamento"/>
-                {/* <Knob rotation="-120" value={settings.Distortion} min="0" max="1" id="3" label="Distortion" effectName="Distortion"/> */}
             </KnobGroup>
 
             <KnobGroup label="Reverb" class='reverb'>
@@ -93,27 +90,6 @@ export default function Synth(){
                 <Knob rotation="-120" value={settings.vibratoDepth} min="0" max="1" id="6" label="Depth" effectName="vibratoDepth"/>
                 <Knob rotation="-120" value={settings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
             </KnobGroup>
-
-            {/* <KnobGroup label="Wave Visualizer" class='visualizer'>
-                SAMPLE TEXT
-            </KnobGroup> */}
-
-
-            {/* <KnobGroup label="Settings" class='settings'>
-                <div className="preset">
-                    <div className='knob-label'>Preset</div>
-                    <select value={settings.name} onChange={handleChange}>
-                        {presetOptions}
-                    </select>
-                </div>
-                <div>
-                    <div className='knob-label'>Theme</div>
-                    <select>
-                        <option>test</option>
-                    </select>
-                </div>
-                <div>test</div>
-            </KnobGroup> */}
 
             <KnobGroup label="Settings" class='settings'>
                 <div className='settings-elements-wrapper'>
@@ -132,20 +108,14 @@ export default function Synth(){
                         </div>
                     </div>
                     <Octave />
-                    {/* <div className='controls'>Octave: {octave.octave}</div> */}
                 </div>
             </KnobGroup>
-            {/* <Waveform /> */}
-            {/* <Controls /> */}
-
-
         </div>
     );
 }
 
 const presetOptions = Object.keys(presets).map( key => <option value={key}>{key}</option> )
 const themeOptions = Object.keys(themes).map( key => <option id={key}>{key}</option> )
-
 
 
 export { currSettings };

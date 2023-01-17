@@ -8,9 +8,6 @@
   --menu-bg-color: rgb(212, 206, 186);
   --synth-bg-color: rgb(45, 46, 42);
   --synth-bg-color: rgb(32, 32, 30);
-
-
-
   --knob-group-bg-color: var(--synth-bg-color);
   --knob-group-bg-color: rgb(45, 46, 42);
   /* --synth-bg-color: var(--bg-color); */
@@ -22,7 +19,6 @@
   --selection-image: invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%);
   --menu-text-color: 'black';
   background-color: var(--bg-color);
-
 }
 
 .App {

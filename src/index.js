@@ -61,4 +61,4 @@ document.addEventListener('keyup', (e) => {
 
 
 
-export { octave };
+export { octave, currNotes };

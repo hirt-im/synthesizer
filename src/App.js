@@ -1,9 +1,9 @@
-import './App.css';
 import Keyboard from './components/keyboard';
 import { Knob, KnobGroup } from './components/knob';
 import WaveTypeSelector from './components/wavetypeSelector';
 import FilterTypeSelector from './components/filtertypeSelector';
 import Synth from './components/synth';
+import './App.css';
 
 
 function App() {
@@ -16,6 +16,8 @@ function App() {
     </div>
   );
 }
+
+
 
 //TODO:
 // get rid of extra space at bottom of every knob group, or center all elements 

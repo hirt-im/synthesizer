@@ -3,9 +3,7 @@ const root = document.querySelector(':root');
 function updateTheme(theme){
     root.style.setProperty('--bg-color', themes[theme]['--bg-color']);
     root.style.setProperty('--label-color', themes[theme]['--label-color']);
-
     root.style.setProperty('--menu-bg-color', themes[theme]['--menu-bg-color']);
-
     root.style.setProperty('--synth-bg-color', themes[theme]['--synth-bg-color']);
     root.style.setProperty('--border-color', themes[theme]['--border-color']);
     root.style.setProperty('--knob-color', themes[theme]['--knob-color']);
@@ -14,8 +12,6 @@ function updateTheme(theme){
     root.style.setProperty('--knob-group-bg-color', themes[theme]['--knob-group-bg-color']);
     root.style.setProperty('--selection-image', themes[theme]['--selection-image']);
     root.style.setProperty('--menu-text-color', themes[theme]['--menu-text-color']);
-
-
     currTheme = themes[theme];
 }
 
@@ -86,13 +82,15 @@ let themes = {
     }
 }
 
-// 66eaee
+
 let currTheme = themes.default;
 if (localStorage.getItem('theme') != null){
     currTheme = localStorage.getItem('theme');
     console.log(currTheme.name)
 }
-updateTheme(currTheme);
 
+setTimeout(() => {
+    updateTheme(currTheme);
+}, "100");
 
 export { updateTheme, themes, currTheme };
