@@ -9,19 +9,18 @@ import { updateKeyToNote } from "../audio/keyToNote";
 import Keyboard from "./keyboard";
 import { Waveform } from "./waveform";
 import { themes, updateTheme, currTheme } from "./themes";
+import Controls from "./controls";
+import Octave from './octave';
 
 
 
 let currSettings = presets['Soothing Pluck'];
 
 
+
 export default function Synth(){
     const [settings, setSettings] = useState(currSettings);
 
-    useEffect(() => {
-        octave.octave = currSettings.octave;
-        updateKeyToNote();
-    }, [currSettings.octave])
 
     useEffect(() => {
         let selectedOption = document.getElementById(currTheme.name);
@@ -29,7 +28,6 @@ export default function Synth(){
     }, [])
 
     function handleChange(e){
-        console.log(presets[e.target.value]);
         currSettings = presets[e.target.value];
         setSettings(currSettings);
         updateSynth();
@@ -124,16 +122,16 @@ export default function Synth(){
                         <div className='themes'>
                             <div className='knob-label'>Theme</div>
                             <select onChange={changeTheme}>
-                                <option id='default'>default</option>
-                                <option id='blue'>blue</option>
-                                <option id='blue2'>blue2</option>
+                                {themeOptions}
                             </select>
                         </div>
                     </div>
-                    <div className='controls'>Show controls</div>
+                    <Octave />
+                    {/* <div className='controls'>Octave: {octave.octave}</div> */}
                 </div>
             </KnobGroup>
             {/* <Waveform /> */}
+            {/* <Controls /> */}
 
 
         </div>
@@ -141,6 +139,8 @@ export default function Synth(){
 }
 
 const presetOptions = Object.keys(presets).map( key => <option value={key}>{key}</option> )
+const themeOptions = Object.keys(themes).map( key => <option id={key}>{key}</option> )
+
 
 
 export { currSettings };

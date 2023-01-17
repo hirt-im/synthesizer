@@ -5,7 +5,7 @@ import App from './App';
 import { synth, waveform } from './audio/audio';
 import * as Tone from 'tone';
 import { keyToNote, updateKeyToNote } from './audio/keyToNote';
-import { currSettings } from './components/synth';
+import { currSettings, currOctave } from './components/synth';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,12 +28,14 @@ document.addEventListener('keydown', (e) => {
   
   let key = e.key.toLowerCase();
   if (key === '/'){
+    if(octave.octave > 6){return;}
     octave.octave++;
     updateKeyToNote();
     return;
   }
 
   if (key === '.'){
+    if(octave.octave < 1){return;}
     octave.octave--;
     updateKeyToNote();
     return;

@@ -274,7 +274,7 @@ option, select{
 .settings-elements-wrapper{
   display: flex;
   flex-direction: column;
-  gap: 5vh;
+  gap: 2vh;
   justify-content: center;
   align-items: center;
 }
@@ -286,4 +286,16 @@ option, select{
   align-items: center;
   gap: 6px;
   /* transform: translate(0,5%); */
+}
+
+.octave-wrapper{
+  font-size: .7em;
+}
+
+#down-octave{
+  color: red;
+}
+
+#up-octave{
+  color: green;
 }

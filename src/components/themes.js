@@ -67,15 +67,30 @@ let themes = {
         '--knob-group-bg-color': '#e6e3e3',
         '--selection-image': 'none',
         'waveform-color': 'black'
+    },
+
+    korg: {
+        name: 'korg',
+        '--bg-color': 'black',
+        '--label-color': 'white',
+        '--menu-bg-color': 'white',
+        '--menu-text-color': 'black',
+        '--synth-bg-color': '#7a0000',
+        '--border-color': 'white',
+        '--knob-color': 'white',
+        '--label-text-color': 'white',
+        '--knob-value-color': 'white',
+        '--knob-group-bg-color': '#7a0000',
+        '--selection-image': 'invert(100%) sepia(100%) saturate(2%) hue-rotate(128deg) brightness(101%) contrast(101%)',
+        'waveform-color': 'white'
     }
 }
 
 // 66eaee
 let currTheme = themes.default;
-if (localStorage.getItem('theme')){
-    console.log(localStorage.getItem('theme'));
+if (localStorage.getItem('theme') != null){
     currTheme = localStorage.getItem('theme');
-    console.log(currTheme);
+    console.log(currTheme.name)
 }
 updateTheme(currTheme);
 
