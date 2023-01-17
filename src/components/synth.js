@@ -21,6 +21,10 @@ let currSettings = presets['Soothing Pluck'];
 export default function Synth(){
     const [settings, setSettings] = useState(currSettings);
 
+    useEffect(() => {
+        octave.octave = currSettings.octave;
+        updateKeyToNote();
+    }, [currSettings.octave])
 
     useEffect(() => {
         let selectedOption = document.getElementById(currTheme.name);
@@ -28,6 +32,7 @@ export default function Synth(){
     }, [])
 
     function handleChange(e){
+        console.log(presets[e.target.value]);
         currSettings = presets[e.target.value];
         setSettings(currSettings);
         updateSynth();

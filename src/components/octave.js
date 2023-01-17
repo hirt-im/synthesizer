@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { octave } from '../index';
+import { currSettings } from './synth';
 
 export default function Octave(){
-    const [currOctave, setOctave] = useState(octave.octave);
+    const [currOctave, setOctave] = useState(currSettings.octave);
+
+    useEffect(() => {
+        setOctave(currSettings.octave);
+    }, [currSettings])
+
     document.addEventListener('keypress', (e) => {
         let key = e.key;
         if (key === '/'){
