@@ -257,7 +257,7 @@ option, select{
   font-family: 'Roboto Mono', sans-serif;
   font-weight: bold;
   background: var(--menu-bg-color);
-  /* color: var(--menu-text-color); */ 
+  color: var(--menu-text-color); 
 }
 
 .settings{
