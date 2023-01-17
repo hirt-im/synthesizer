@@ -19,8 +19,10 @@
   --label-text-color: #deb9e0;
   --knob-value-color: #bbaea6;
   --knob-active: var(--label-text-color);
-    background-color: var(--bg-color);
   --selection-image: invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%);
+  --menu-text-color: 'black';
+  background-color: var(--bg-color);
+
 }
 
 .App {
@@ -53,7 +55,7 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1vw;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 20px;
   width: 65vw;
   height: 75vh;
@@ -188,7 +190,7 @@
   /* height: 90%; */
   padding-left: 1.3vw;
   padding-right: 1.3vw;
-  border: 1.5px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 15px;
   color: var(--label-text-color);
   background-color: var(--knob-group-bg-color);
@@ -213,7 +215,7 @@
 
 .visualizer{
   grid-column: 2/4;
-  border: 1.5px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 15px;
   background-color: var(--knob-group-bg-color);
 }
@@ -254,7 +256,8 @@
 option, select{
   font-family: 'Roboto Mono', sans-serif;
   font-weight: bold;
-  background: var(--menu-bg-color)
+  background: var(--menu-bg-color);
+  /* color: var(--menu-text-color); */ 
 }
 
 .settings{

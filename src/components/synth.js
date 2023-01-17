@@ -8,7 +8,7 @@ import { octave } from '../index';
 import { updateKeyToNote } from "../audio/keyToNote";
 import Keyboard from "./keyboard";
 import { Waveform } from "./waveform";
-import { updateTheme } from "./themes";
+import { themes, updateTheme } from "./themes";
 
 
 
@@ -121,6 +121,7 @@ export default function Synth(){
                             <select onChange={changeTheme}>
                                 <option>default</option>
                                 <option>blue</option>
+                                <option>blue2</option>
                             </select>
                         </div>
                     </div>

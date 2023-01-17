@@ -3,16 +3,18 @@ import Sketch from 'react-p5';
 import * as p5 from 'react-p5';
 import { useState, useEffect } from "react";
 import { currTheme } from '../components/themes';
+import { currSettings } from "./synth";
 
 
 function Waveform(){
 
     let parentDiv, width, height;
     useEffect(() => {
+        console.log('now');
         parentDiv = document.getElementById('vis');
         width = parentDiv.offsetWidth;
         height = parentDiv.offsetHeight;
-    }, [document.getElementById('vis')])
+    }, [currSettings])
 
 
     let setup = (p5, parentRef) => {
@@ -30,7 +32,7 @@ function Waveform(){
 
 		// p5.background(p5.color('rgb(45, 46, 42)'));
         p5.background(p5.color(currTheme['--knob-group-bg-color']));
-		p5.stroke('white');
+		p5.stroke(p5.color(currTheme['waveform-color']));
         p5.strokeWeight(2);
 
         buffer = waveform.getValue();  

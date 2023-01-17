@@ -13,39 +13,58 @@ function updateTheme(theme){
     root.style.setProperty('--knob-value-color', themes[theme]['--knob-value-color']);
     root.style.setProperty('--knob-group-bg-color', themes[theme]['--knob-group-bg-color']);
     root.style.setProperty('--selection-image', themes[theme]['--selection-image']);
+    root.style.setProperty('--menu-text-color', themes[theme]['--menu-text-color']);
 
 
     currTheme = themes[theme];
 }
+
 
 let themes = {
     default: {
         '--bg-color': '#282c34',
         '--label-color': 'rgb(255, 196, 0)',
         '--menu-bg-color': 'rgb(212, 206, 186)',
+        '--menu-text-color': 'black',
         '--synth-bg-color': 'rgb(32, 32, 30)',
         '--border-color': 'transparent',
         '--knob-color': 'white',
-       ' --label-text-color': '#deb9e0',
+        '--label-text-color': '#deb9e0',
         '--knob-value-color': '#bbaea6',
         '--knob-group-bg-color': 'rgb(45, 46, 42)',
-        '--selection-image': 'invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%)'
+        '--selection-image': 'invert(80%) sepia(51%) saturate(1018%) hue-rotate(338deg) brightness(104%) contrast(103%)',
+        'waveform-color': 'white'
     },
 
     blue: {
         '--bg-color': '#006d77',
         '--label-color': '#006d77',
         '--menu-bg-color': 'rgb(212, 206, 186)',
+        '--menu-text-color': 'black',
         '--synth-bg-color': 'rgb(32, 32, 30)',
         '--border-color': 'transparent',
         '--knob-color': 'white',
-       ' --label-text-color': 'black',
+        '--label-text-color': '#91d5ff',
         '--knob-value-color': '#bde6ff',
         '--knob-group-bg-color': '#282c34',
-        '--selection-image': 'invert(19%) sepia(96%) saturate(5432%) hue-rotate(176deg) brightness(88%) contrast(101%)'
+        '--selection-image': 'invert(19%) sepia(96%) saturate(5432%) hue-rotate(176deg) brightness(88%) contrast(101%)',
+        'waveform-color': 'white'
+    },
+
+    blue2: {
+        '--bg-color': '#66eaee',
+        '--label-color': 'black',
+        '--menu-bg-color': 'black',
+        '--menu-text-color': 'white',
+        '--synth-bg-color': '#bdf9ff',
+        '--border-color': 'black',
+        '--knob-color': 'black',
+        '--label-text-color': 'black',
+        '--knob-value-color': 'black',
+        '--knob-group-bg-color': '#e6e3e3',
+        '--selection-image': 'none',
+        'waveform-color': 'black'
     }
-
-
 }
 
 
