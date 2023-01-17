@@ -8,7 +8,7 @@ import { octave } from '../index';
 import { updateKeyToNote } from "../audio/keyToNote";
 import Keyboard from "./keyboard";
 import { Waveform } from "./waveform";
-import { themes, updateTheme } from "./themes";
+import { themes, updateTheme, currTheme } from "./themes";
 
 
 
@@ -23,6 +23,10 @@ export default function Synth(){
         updateKeyToNote();
     }, [currSettings.octave])
 
+    useEffect(() => {
+        let selectedOption = document.getElementById(currTheme.name);
+        selectedOption.selected = 'selected';
+    }, [])
 
     function handleChange(e){
         console.log(presets[e.target.value]);
@@ -33,6 +37,7 @@ export default function Synth(){
 
     function changeTheme(e){
         updateTheme(e.target.value);
+        localStorage.setItem('theme', e.target.value);
     }
 
     return(
@@ -119,9 +124,9 @@ export default function Synth(){
                         <div className='themes'>
                             <div className='knob-label'>Theme</div>
                             <select onChange={changeTheme}>
-                                <option>default</option>
-                                <option>blue</option>
-                                <option>blue2</option>
+                                <option id='default'>default</option>
+                                <option id='blue'>blue</option>
+                                <option id='blue2'>blue2</option>
                             </select>
                         </div>
                     </div>

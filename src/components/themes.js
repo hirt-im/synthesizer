@@ -22,6 +22,7 @@ function updateTheme(theme){
 
 let themes = {
     default: {
+        name: 'default',
         '--bg-color': '#282c34',
         '--label-color': 'rgb(255, 196, 0)',
         '--menu-bg-color': 'rgb(212, 206, 186)',
@@ -37,6 +38,7 @@ let themes = {
     },
 
     blue: {
+        name: 'blue',
         '--bg-color': '#006d77',
         '--label-color': '#006d77',
         '--menu-bg-color': 'rgb(212, 206, 186)',
@@ -52,6 +54,7 @@ let themes = {
     },
 
     blue2: {
+        name: 'blue2',
         '--bg-color': '#66eaee',
         '--label-color': 'black',
         '--menu-bg-color': 'black',
@@ -67,8 +70,14 @@ let themes = {
     }
 }
 
-
+// 66eaee
 let currTheme = themes.default;
+if (localStorage.getItem('theme')){
+    console.log(localStorage.getItem('theme'));
+    currTheme = localStorage.getItem('theme');
+    console.log(currTheme);
+}
+updateTheme(currTheme);
 
 
 export { updateTheme, themes, currTheme };
