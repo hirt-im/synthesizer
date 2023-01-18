@@ -96,13 +96,13 @@ export default function Synth(){
                     <div className="selectors-wrapper">
                         <div className="preset">
                             <div className='knob-label'>Preset</div>
-                            <select value={settings.name} onChange={handleChange}>
+                            <select className="menu-item" value={settings.name} onChange={handleChange}>
                                 {presetOptions}
                             </select>
                         </div>
                         <div className='themes'>
                             <div className='knob-label'>Theme</div>
-                            <select onChange={changeTheme}>
+                            <select className="menu-item" onChange={changeTheme}>
                                 {themeOptions}
                             </select>
                         </div>
@@ -114,8 +114,8 @@ export default function Synth(){
     );
 }
 
-const presetOptions = Object.keys(presets).map( key => <option value={key}>{key}</option> )
-const themeOptions = Object.keys(themes).map( key => <option id={key}>{key}</option> )
+const presetOptions = Object.keys(presets).map( key => <option className="menu-item" value={key}>{key}</option> )
+const themeOptions = Object.keys(themes).map( key => <option className="menu-item" id={key}>{key}</option> )
 
 
 export { currSettings };

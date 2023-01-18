@@ -253,8 +253,8 @@ option, select{
   font-family: 'Roboto Mono', sans-serif;
   font-weight: bold;
   background: var(--menu-bg-color);
-  color: var(--menu-text-color); 
 }
+
 
 .settings{
   display: flex;
@@ -294,4 +294,8 @@ option, select{
 
 #up-octave{
   color: green;
+}
+
+.menu-item{
+  color: black;
 }

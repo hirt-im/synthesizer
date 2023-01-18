@@ -1,5 +1,6 @@
 const root = document.querySelector(':root');
 
+
 function updateTheme(theme){
     root.style.setProperty('--bg-color', themes[theme]['--bg-color']);
     root.style.setProperty('--label-color', themes[theme]['--label-color']);
@@ -53,7 +54,7 @@ let themes = {
         name: 'blue2',
         '--bg-color': '#66eaee',
         '--label-color': 'black',
-        '--menu-bg-color': 'black',
+        '--menu-bg-color': 'white',
         '--menu-text-color': 'white',
         '--synth-bg-color': '#bdf9ff',
         '--border-color': 'black',
@@ -89,8 +90,12 @@ if (localStorage.getItem('theme') != null){
     console.log(currTheme.name)
 }
 
-setTimeout(() => {
+document.addEventListener('DOMContentLoaded', function() {
     updateTheme(currTheme);
-}, "100");
+ }, false);
+
+// setTimeout(() => {
+//     updateTheme(currTheme);
+// }, "100");
 
 export { updateTheme, themes, currTheme };
