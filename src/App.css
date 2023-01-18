@@ -242,6 +242,7 @@ option, select{
   font-family: 'Roboto Mono', sans-serif;
   font-weight: bold;
   background: var(--menu-bg-color);
+}
 
 .settings{
   display: flex;

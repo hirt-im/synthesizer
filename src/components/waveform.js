@@ -9,7 +9,6 @@ function Waveform(){
 
     let parentDiv, width, height;
     useEffect(() => {
-        console.log('now');
         parentDiv = document.getElementById('vis');
         width = parentDiv.offsetWidth;
         height = parentDiv.offsetHeight;
