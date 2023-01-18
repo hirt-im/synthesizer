@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { synth, waveform } from './audio/audio';
+import { synth } from './audio/audio';
 import * as Tone from 'tone';
 import { keyToNote, updateKeyToNote } from './audio/keyToNote';
-import { currSettings, currOctave } from './components/synth';
+import { currSettings } from './components/synth';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
     <App />
-  // </React.StrictMode>
 );
 
 let octave = {
@@ -23,8 +21,6 @@ updateKeyToNote();
 
 let currNotes = {};
 document.addEventListener('keydown', (e) => {
-
-  // console.log(waveform.getValue());
   
   let key = e.key.toLowerCase();
   if (key === '/'){
@@ -58,7 +54,6 @@ document.addEventListener('keyup', (e) => {
   }
   delete currNotes[key];
 })
-
 
 
 export { octave, currNotes };

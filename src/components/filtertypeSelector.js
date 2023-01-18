@@ -23,13 +23,11 @@ export default function FilterTypeSelector(props){
             <select value={filter} onChange={handleChange}>
                 <option value="lowpass">lowpass</option>
                 <option value="highpass">highpass</option>
-                {/* <option value="lowshelf">lowshelf</option> */}
-                {/* <option value="highshelf">highshelf</option> */}
                 <option value="bandpass">bandpass</option>
                 <option value="notch">notch</option>
             </select>
             <div className="selection-type">
-                <img className='selection-image' src={'../icons/filter-' + filter + '.svg'}></img>
+                <img className='selection-image' src={'./icons/filter-' + filter + '.svg'}></img>
             </div>
         </div>
     );

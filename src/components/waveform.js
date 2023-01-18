@@ -1,7 +1,6 @@
 import { waveform } from "../audio/audio";
 import Sketch from 'react-p5';
-import * as p5 from 'react-p5';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { currTheme } from '../components/themes';
 import { currSettings } from "./synth";
 
@@ -16,21 +15,13 @@ function Waveform(){
         height = parentDiv.offsetHeight;
     }, [currSettings])
 
-
     let setup = (p5, parentRef) => {
 		p5.createCanvas(width - 15, height).parent(parentRef);
 	};
 
-
-
-    let counter = 0;
-
-    
     let start, end, buffer;
     let ampFactor = 8.5;
     let draw = (p5) => {
-
-		// p5.background(p5.color('rgb(45, 46, 42)'));
         p5.background(p5.color(currTheme['--knob-group-bg-color']));
 		p5.stroke(p5.color(currTheme['waveform-color']));
         p5.strokeWeight(2);
@@ -56,12 +47,7 @@ function Waveform(){
             // p5.line(x, height, x, y);
         }
         p5.endShape();
-
-        counter++;
 	};
-
-    // IDEA:
-    // compare current waveform to previous waveform, if it's too different, don't draw it??? fuck me.
 
     return(
             <Sketch setup={setup} draw={draw} />

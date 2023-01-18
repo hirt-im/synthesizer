@@ -13,7 +13,6 @@ function Knob(props){
     const min = parseInt(props.min);
     const max = parseInt(props.max);
 
-    const minRad = -135 * (Math.PI / 180);
     const maxRad = 135 * (Math.PI / 180);
     const slidingMax = maxRad * 2;
 
@@ -46,7 +45,6 @@ function Knob(props){
         knobWrapper.style.transform = 'rotate(' + currRotation +'deg)';
         calculateValue();
         currSettings[props.effectName] = currValue;
-        // updateSynth();
     }
 
     function calculateValue(){

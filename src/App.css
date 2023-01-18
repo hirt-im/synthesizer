@@ -4,13 +4,11 @@
 :root{
   --bg-color: #282c34;
   --label-color: rgb(255, 196, 0);
-  /* --label-color: #FFFBAC; */
   --menu-bg-color: rgb(212, 206, 186);
   --synth-bg-color: rgb(45, 46, 42);
   --synth-bg-color: rgb(32, 32, 30);
   --knob-group-bg-color: var(--synth-bg-color);
   --knob-group-bg-color: rgb(45, 46, 42);
-  /* --synth-bg-color: var(--bg-color); */
   --border-color: transparent;
   --knob-color: white;
   --label-text-color: #deb9e0;
@@ -134,10 +132,6 @@
   align-self: center;
 }
 
-.knob:active, .knob-handle:active{
-  border-color: var(--knob-active);
-}
-
 .knob-wrapper{
   transform: translate(-50%, -50%);
   transform: rotate(-135deg);
@@ -152,7 +146,6 @@
   color: var(--knob-value-color);
   margin-right: .5vw;
 }
-
 
 .knob-wrapper-wrapper{
   display: flex;
@@ -183,7 +176,6 @@
 }
 
 .knob-group-wrapper{
-  /* height: 90%; */
   padding-left: 1.3vw;
   padding-right: 1.3vw;
   border: 2px solid var(--border-color);
@@ -216,14 +208,11 @@
   background-color: var(--knob-group-bg-color);
 }
 
-
 .delay{
   grid-column: 4/5;
 }
 
 .note{grid-column: 1/2;}
-
-
 
 .settings{
   grid-column: 4/5;
@@ -253,8 +242,6 @@ option, select{
   font-family: 'Roboto Mono', sans-serif;
   font-weight: bold;
   background: var(--menu-bg-color);
-}
-
 
 .settings{
   display: flex;
@@ -281,7 +268,6 @@ option, select{
   justify-content: center;
   align-items: center;
   gap: 6px;
-  /* transform: translate(0,5%); */
 }
 
 .octave-wrapper{

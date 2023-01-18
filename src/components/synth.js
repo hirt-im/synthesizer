@@ -6,16 +6,13 @@ import FilterTypeSelector from './filtertypeSelector'
 import { updateSynth } from "../audio/audio";
 import { octave } from '../index';
 import { updateKeyToNote } from "../audio/keyToNote";
-import Keyboard from "./keyboard";
 import { Waveform } from "./waveform";
 import { themes, updateTheme, currTheme } from "./themes";
 import Controls from "./controls";
 import Octave from './octave';
 
 
-
 let currSettings = presets['Soothing Pluck'];
-
 
 
 export default function Synth(){

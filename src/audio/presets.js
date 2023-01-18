@@ -2,7 +2,6 @@ let presets;
 
 function establishPresets(){
     presets = {
-
         "Soothing Pluck": {
             name: 'Soothing Pluck',
             chorusFreq: 10,

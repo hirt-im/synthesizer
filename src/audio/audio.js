@@ -13,7 +13,6 @@ let delay = new Tone.FeedbackDelay(0.01,0);
 let waveform = new Tone.Waveform(512);
 synth.chain(chorus, vibrato, filter, distortion, compressor, delay, reverb.toDestination()); 
 Tone.Destination.connect(waveform);
-
 synth.set({
     oscillator: {
         type: currSettings.waveType
@@ -25,10 +24,8 @@ function updateSynth(){
 
     distortion.distortion = currSettings.Distortion * .75;
 
-// remove chorus frequency knob? doesn't seem to affect sound at all
     chorus.set({
         feedback: currSettings.chorusFeedback * .9,
-        // frequency: currSettings.chorusFreq,
         delayTime: currSettings.chorusDelay
     })
 
@@ -59,7 +56,6 @@ function updateSynth(){
     delay.set({
         delayTime: currSettings.delayTime,
         feedback: currSettings.delayFeedback * .95,
-        // wet: currSettings.delayDryWet
     })
 
     if (currSettings.reverbDecay < 0.001){
@@ -75,35 +71,6 @@ function updateSynth(){
         })
     }
 }
-
-
-
-
-
-export default function generateOsc(freq){
-    let osc = audioCtx.createOscillator();
-    let gainNode = audioCtx.createGain();
-
-    let delay = audioCtx.createDelay();
-    delay.delayTime.value = currSettings["Delay"];
-    console.log(delay);
-
-    
-
-
-    gainNode.gain.value = currSettings["Gain"];
-    osc.frequency.value = freq;
-
-    console.log(currSettings);
-    console.log(osc);
-
-    osc.connect(gainNode);
-    // gainNode.connect(audioCtx.destination);
-    gainNode.connect(delay);
-    delay.connect(audioCtx.destination);
-    return [osc, gainNode];
-}
-
 
 
 export { audioCtx, updateSynth, synth, filter, waveform };

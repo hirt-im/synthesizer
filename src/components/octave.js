@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { octave } from '../index';
 import { currSettings } from './synth';
 
 export default function Octave(){
