@@ -6,4 +6,4 @@ Created using React, Tone.js, and p5.js. Play it here:
 
 ### Controls
 
-![controls](https://raw.githubusercontent.com/hirt-im/synthesizer/main/public/icons/synthControls.jpg?token=GHSAT0AAAAAAB44W4DOQXISOXKS3HMMFE4EY6IGXLA)
+![controls](https://github.com/hirt-im/synthesizer/blob/main/public/icons/synthControls.jpg?raw=true)
