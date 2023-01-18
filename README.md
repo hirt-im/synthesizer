@@ -6,4 +6,4 @@ Created using React, Tone.js, and p5.js
 
 ### Controls
 
-![alt text](https://github.com/hirt-im/synthesizer/blob/main/public/synthControls.jpg?raw=true)
+![controls](https://raw.githubusercontent.com/hirt-im/synthesizer/main/public/icons/synthControls.jpg?token=GHSAT0AAAAAAB44W4DOQXISOXKS3HMMFE4EY6IGXLA)
