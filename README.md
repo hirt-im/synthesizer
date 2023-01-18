@@ -2,5 +2,5 @@
 
 Created using React, Tone.js, and p5.js
 
-[hirt.im/cosmic-cubes](http://hirt.im/synthesizer/)
+[hirt.im/synthesizer](http://hirt.im/synthesizer/)
 
