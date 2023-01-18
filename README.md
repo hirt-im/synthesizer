@@ -1,6 +1,6 @@
 # Polyphonic Synthesizer
 
-Created using React, Tone.js, and p5.js
+Created using React, Tone.js, and p5.js. Play it here:
 
 [hirt.im/synthesizer](http://hirt.im/synthesizer/)
 
