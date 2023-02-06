@@ -86,8 +86,8 @@ export default function Synth(){
                 <Knob rotation="-120" value={currSettings.vibratoFreq} min="0" max="50" id="7" label="Frequency" effectName="vibratoFreq"/>
             </KnobGroup>
 
-            <KnobGroup label="Settings" class='currSettings'>
-                <div className='currSettings-elements-wrapper'>
+            <KnobGroup label="Settings" class='settings'>
+                <div className='settings-elements-wrapper'>
                     <div className="selectors-wrapper">
                         <div className="preset">
                             <div className='knob-label'>Preset</div>
