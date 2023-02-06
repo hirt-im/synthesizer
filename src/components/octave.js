@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { currSettings } from './synth';
+import { currSettings } from './settings';
 
 export default function Octave(){
     const [currOctave, setOctave] = useState(currSettings.octave);

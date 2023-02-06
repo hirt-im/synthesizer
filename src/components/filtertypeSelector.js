@@ -1,6 +1,6 @@
 import { synth, updateSynth, filter } from "../audio/audio";
 import { useEffect, useState } from "react";
-import { currSettings } from "./synth";
+import { currSettings } from "./settings"
 
 export default function FilterTypeSelector(props){
 

@@ -2,7 +2,7 @@ import { waveform } from "../audio/audio";
 import Sketch from 'react-p5';
 import { useEffect } from "react";
 import { currTheme } from '../components/themes';
-import { currSettings } from "./synth";
+import { currSettings } from "./settings";
 
 
 function Waveform(){

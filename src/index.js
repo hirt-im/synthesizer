@@ -5,7 +5,7 @@ import App from './App';
 import { synth } from './audio/audio';
 import * as Tone from 'tone';
 import { keyToNote, updateKeyToNote } from './audio/keyToNote';
-import { currSettings } from './components/synth';
+import { currSettings } from './components/settings';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { updateSynth } from '../audio/audio';
-import { currSettings } from './synth';
+import { currSettings } from './settings';
 import { establishPresets } from '../audio/presets';
 
 function Knob(props){

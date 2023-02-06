@@ -1,5 +1,5 @@
 import * as Tone from 'tone';
-import { currSettings } from '../components/synth';
+import { currSettings } from '../components/settings';
 
 let audioCtx = new window.AudioContext();
 let synth = new Tone.PolySynth();
